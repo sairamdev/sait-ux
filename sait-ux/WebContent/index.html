@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport"
+	content="width=device-width, shrink-to-fit=no, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>Ami-GO-Your Car's Best Firend</title>
+
+<!-- Bootstrap Core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="css/simple-sidebar.css" rel="stylesheet">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+	<div id="map-canvas"></div>
+	<div class="container-fluid">
+		<div class="row">
+			<nav class="navbar my-navbar navbar-inverse">
+				<div>
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse" data-target="#navbar"
+							aria-expanded="false" aria-controls="navbar">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+
+						<a class="navbar-brand"><h4>Ami-GO</h4></a> <a class="navbar-brand"
+							href="#" id="menu-toggle"> <i class="glyphicon glyphicon-th"></i></a>
+						<a class="navbar-brand" href="#"
+							onclick="getMyLocation(showMyCurrentPostion)"> <i
+							class="glyphicon glyphicon-map-marker"></i></a>
+
+
+						<form class="navbar-brand navbar-form">
+							<div class="input-group">
+								<input type="text" class="form-control" placeholder="Search"
+									id="addressSearch">
+								<div class="input-group-btn">
+									<button class="btn btn-default">
+										<i class="glyphicon glyphicon-search"></i>
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+
+					<div id="navbar" class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+							<li><a href="#">Page 3</a></li>
+						</ul>
+
+					</div>
+				</div>
+			</nav>
+		</div>
+
+		<div id="wrapper">
+			<div id="sidebar-wrapper">
+				<!-- /input-group -->
+
+				<div class="indvdl-menu-item" id="MyCar-div">
+					<div></div>
+					<ul class="sidebar-nav">
+						<li class="sidebar-brand">
+							<h4 class="my-h4">MyCar</h4> <a class="menu-div-slide-btn"
+							href="#" id="prevs-mnu-MyCar"> <i
+								class="glyphicon glyphicon-chevron-left"></i>
+						</a>
+						</li>
+						<div class="row">
+							<hr class="myHr">
+						</div>
+						<li><a href="#" data-toggle="modal" data-target="#myModal">AddCarInfo</a></li>
+						<div class="row">
+							<hr class="myHr">
+						</div>
+					</ul>
+				</div>
+
+				<div class="indvdl-menu-item" id="breakDown-div">
+					<div></div>
+					<ul class="sidebar-nav">
+						<li class="sidebar-brand">
+							<h4 class="my-h4">BreakDown-menu</h4> <a
+							class="menu-div-slide-btn" href="#" id="prevs-mnu-brkdwn"> <i
+								class="glyphicon glyphicon-chevron-left"></i>
+						</a>
+						</li>
+						<div class="row">
+							<hr class="myHr">
+						</div>
+						<li><a href="#" data-toggle="modal" data-target="#myModal">Add
+								breakDown Info</a></li>
+						<div class="row">
+							<hr class="myHr">
+						</div>
+					</ul>
+				</div>
+
+				<div class="indvdl-menu-item" id="My-Insurance-div">
+					<div></div>
+					<ul class="sidebar-nav">
+						<li class="sidebar-brand">
+							<h4 class="my-h4">My-Insurance</h4> <a class="menu-div-slide-btn"
+							href="#" id="prevs-mnu-My-Insurance"> <i
+								class="glyphicon glyphicon-chevron-left"></i>
+						</a>
+						</li>
+						<div class="row">
+							<hr class="myHr">
+						</div>
+						<li><a href="#" data-toggle="modal" data-target="#myModal">Add
+								My-Insurance</a></li>
+						<div class="row">
+							<hr class="myHr">
+						</div>
+					</ul>
+				</div>
+
+				<div class="indvdl-menu-item" id="Service-Book-div">
+					<div></div>
+					<ul class="sidebar-nav">
+						<li class="sidebar-brand">
+							<h4 class="my-h4">Service-Book</h4> <a class="menu-div-slide-btn"
+							href="#" id="prevs-mnu-Service-Book"> <i
+								class="glyphicon glyphicon-chevron-left"></i>
+						</a>
+						</li>
+						<div class="row">
+							<hr class="myHr">
+						</div>
+						<li><a href="#" data-toggle="modal" data-target="#myModal">Add
+								Service-Book</a></li>
+						<div class="row">
+							<hr class="myHr">
+						</div>
+					</ul>
+				</div>
+
+				<div class="indvdl-menu-item" id="BreakDownHistory-div">
+					<div></div>
+					<ul class="sidebar-nav">
+						<li class="sidebar-brand">
+							<h4 class="my-h4">BreakDownHistory</h4> <a
+							class="menu-div-slide-btn" href="#"
+							id="prevs-mnu-BreakDownHistory"> <i
+								class="glyphicon glyphicon-chevron-left"></i>
+						</a>
+						</li>
+						<div class="row">
+							<hr class="myHr">
+						</div>
+						<li><a href="#" data-toggle="modal" data-target="#myModal">Add
+								BreakDownHistory</a></li>
+						<div class="row">
+							<hr class="myHr">
+						</div>
+					</ul>
+				</div>
+
+
+
+
+				<div class="menu-item-div" id="main-menu-div">
+					<ul class="sidebar-nav">
+
+						<li class="sidebar-brand">
+							<h4 class="my-h4">Home</h4>
+						</li>
+						<div class="row">
+							<hr class="myHr">
+						</div>
+						<!-- <li><a href="#" data-toggle="modal" data-target="#myModal">Dashboard</a></li> -->
+						<li><a href="#" id="MyCar-menu">MyCar</a></li>
+						<div class="row">
+							<hr class="myHr">
+						</div>
+						<li><a href="#" id="BreakDown-menu">BreakDown</a></li>
+						<div class="row">
+							<hr class="myHr">
+						</div>
+						<li><a href="#" id="My-Insurance-menu">My-Insurance</a></li>
+						<div class="row">
+							<hr class="myHr">
+						</div>
+						<li><a href="#" id="Service-Book-contact-menu">Service-Book</a></li>
+						<div class="row">
+							<hr class="myHr">
+						</div>
+						<li><a href="#" id="BreakDownHistory-contact-menu">BreakDownHistory</a></li>
+						<div class="row">
+							<hr class="myHr">
+						</div>
+
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header ">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">Modal title</h4>
+				</div>
+				<div class="modal-body">
+					<p>Search Vendors&hellip;</p>
+					<div class="input-group">
+						<span class="input-group-addon"> <input type="radio"
+							aria-label="..." id="buffer-radio-btn">
+						</span> <input type="text" placeholder="Around Me(Radius in KM)"
+							class="form-control" aria-label="...">
+					</div>
+					<br>
+					<div class="input-group">
+						<span class="input-group-addon"> <input type="radio"
+							aria-label="..." checked id="drive-time-radio-btn">
+						</span> <input type="text" placeholder="Within Drive Time(minutes) "
+							class="form-control" aria-label="...">
+					</div>
+					<!-- /input-group -->
+
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					<button type="button" class="btn btn-primary">Search</button>
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+
+	<!-- jQuery -->
+	<script src="js/jquery.js"></script>
+	<!-- Bootstrap Core JavaScript -->
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/gmaps-utils.js"></script>
+	<script type="text/javascript" src="js/geosrvr-gmaps.js"></script>
+	<script type="text/javascript" src="js/geoserver-helper.js"></script>
+	<script
+		src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyB9uJRahtJHZcPTQMskenU-FzhdJ8G-zRI&libraries=places"></script>
+	<script type="text/javascript" src="js/UXInteractions.js"></script>
+	<script type="text/javascript" src="js/geolocation.js"></script>
+
+</body>
+
+</html>
