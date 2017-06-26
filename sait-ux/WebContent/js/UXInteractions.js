@@ -33,6 +33,10 @@ $("#BreakDownHistory-contact-menu").click(function(e) {
 	sendontop("BreakDownHistory-div");
 });
 
+$("#AddMyCar").click(function(e) {
+	e.preventDefault();
+	sendontop("MyCarAddContents-div");
+});
 
 
 var my_index = 10000; // global var on page
@@ -41,6 +45,8 @@ function sendontop(div_id) {
 	div_id.style.zIndex = my_index++;
 	div_id.style.marginLeft = "-256px";
 }
+var leftMargin="-570px";
+
 
 $("#prevs-mnu-MyCar")
 		.click(
@@ -48,7 +54,7 @@ $("#prevs-mnu-MyCar")
 					e.preventDefault();
 					var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
 					var divElement = document.getElementById(prevsDivId);
-					divElement.style.marginLeft = "-512px";
+					divElement.style.marginLeft = leftMargin;
 
 				});
 
@@ -58,7 +64,7 @@ $("#prevs-mnu-brkdwn")
 					e.preventDefault();
 					var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
 					var divElement = document.getElementById(prevsDivId);
-					divElement.style.marginLeft = "-512px";
+					divElement.style.marginLeft = leftMargin;
 
 				});
 
@@ -69,7 +75,7 @@ $("#prevs-mnu-My-Insurance")
 			e.preventDefault();
 			var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
 			var divElement = document.getElementById(prevsDivId);
-			divElement.style.marginLeft = "-512px";
+			divElement.style.marginLeft =leftMargin;
 
 		});
 
@@ -82,7 +88,7 @@ $("#prevs-mnu-Service-Book")
 			e.preventDefault();
 			var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
 			var divElement = document.getElementById(prevsDivId);
-			divElement.style.marginLeft = "-512px";
+			divElement.style.marginLeft = leftMargin;
 
 		});
 
@@ -92,9 +98,20 @@ $("#prevs-mnu-BreakDownHistory")
 			e.preventDefault();
 			var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
 			var divElement = document.getElementById(prevsDivId);
-			divElement.style.marginLeft = "-512px";
+			divElement.style.marginLeft = leftMargin;
 
 		});
+
+$("#prevs-mnu-AddCar")
+.click(
+		function(e) {
+			e.preventDefault();
+			var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
+			var divElement = document.getElementById(prevsDivId);
+			divElement.style.marginLeft = leftMargin;
+
+		});
+
 
 
 

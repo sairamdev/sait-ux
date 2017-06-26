@@ -10,7 +10,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Ami-GO-Your Car's Best Firend</title>
+<title>Ami-GOO-Your Car's Best Firend</title>
 
 <!-- Bootstrap Core CSS -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -42,10 +42,10 @@
 								class="icon-bar"></span>
 						</button>
 
-						<a class="navbar-brand"><h4>Ami-GO</h4></a> <a class="navbar-brand"
-							href="#" id="menu-toggle"> <i class="glyphicon glyphicon-th"></i></a>
-						<a class="navbar-brand" href="#"
-							onclick="getMyLocation(showMyCurrentPostion)"> <i
+						<a class="navbar-brand"><h4>Ami-GOO</h4></a> <a
+							class="navbar-brand" href="#" id="menu-toggle"> <i
+							class="glyphicon glyphicon-th"></i></a> <a class="navbar-brand"
+							href="#" onclick="getMyLocation(showMyCurrentPostion)"> <i
 							class="glyphicon glyphicon-map-marker"></i></a>
 
 
@@ -84,11 +84,43 @@
 							href="#" id="prevs-mnu-MyCar"> <i
 								class="glyphicon glyphicon-chevron-left"></i>
 						</a>
+
 						</li>
+
+						<a href=# class="MyCarGylphs" id="AddMyCar"><i
+							class="glyphicon glyphicon-plus">AddCar</i></a>
+
 						<div class="row">
 							<hr class="myHr">
 						</div>
-						<li><a href="#" data-toggle="modal" data-target="#myModal">AddCarInfo</a></li>
+						<div id=MyCarContentDiv>
+							<p id=MyCarParagraph>Your account does not have any car
+								registered. Please add.
+							<p>
+							<div class="row">
+								<hr class="myHr">
+							</div>
+
+							<li><a href="#" data-toggle="modal"
+								data-target="#MyCarDetailsModal"> Add breakDown Info </a>
+								<div class="btn-group  my-btn-carinfo" role="group"
+									aria-label="...">
+									<a href="#" class="my-li-mycar-a" onclick="alert('add code for deletion')"><span id="delete-car-gylph"
+										class="glyphicon glyphicon-remove"
+										aria-hidden="true"></span></a>
+										
+										<a href="#" class="my-li-mycar-a" onclick="alert('add code for deletion')"><span id="edit-car-gylph"
+										class="glyphicon glyphicon-pencil"
+										aria-hidden="true"></span></a>
+
+
+								</div></li>
+
+							<div class="row">
+								<hr class="myHr">
+							</div>
+						</div>
+
 						<div class="row">
 							<hr class="myHr">
 						</div>
@@ -176,6 +208,89 @@
 					</ul>
 				</div>
 
+				<div class="indvdl-menu-item" id="MyCarAddContents-div">
+					<div></div>
+					<ul class="sidebar-nav">
+						<li class="sidebar-brand">
+							<h4 class="my-h4">AddCar</h4> <a class="menu-div-slide-btn"
+							href="#" id="prevs-mnu-AddCar"> <i
+								class="glyphicon glyphicon-chevron-left"></i>
+						</a>
+						</li>
+						<div class="my-hr-row">
+							<hr class="myHr">
+						</div>
+						<div id="AddCarDetailsDiv">
+
+							<h5 class="my-h5">Registration#</h5>
+							<div class="my-input-group">
+								<input type="text" class="form-control"
+									placeholder="Registration#" aria-describedby="basic-addon1">
+							</div>
+
+							<h5 class="my-h5">CarBrand</h5>
+							<div class="my-input-group">
+								<input type="text" class="form-control" placeholder="CarBrand"
+									aria-describedby="basic-addon1">
+							</div>
+
+							<h5 class="my-h5">Purchasing Year</h5>
+							<div class="my-input-group">
+								<input type="text" class="form-control"
+									placeholder="Purchasing Year(MM/DD/YYYY)"
+									aria-describedby="basic-addon1">
+							</div>
+
+
+							<h5 class="my-h5">Enter km</h5>
+							<div class="my-input-group">
+								<input type="text" class="form-control"
+									placeholder="Enter km Travelled"
+									aria-describedby="basic-addon1">
+							</div>
+
+							<h5 class="my-h5">Color</h5>
+							<div class="my-input-group">
+								<input type="text" class="form-control" placeholder="Color"
+									aria-describedby="basic-addon1">
+							</div>
+
+							<h5 class="my-h5">Fuel Type</h5>
+							<div class="my-input-group">
+								<input type="text" class="form-control" placeholder="Fuel Type"
+									aria-describedby="basic-addon1">
+							</div>
+
+							<h5 class="my-h5">Mileages km</h5>
+							<div class="my-input-group">
+								<input type="text" class="form-control"
+									placeholder="Mileages km" aria-describedby="basic-addon1">
+							</div>
+
+							<h5 class="my-h5">Transmission Type</h5>
+							<div class="my-input-group">
+								<input type="text" class="form-control"
+									placeholder="Transmission Type" aria-describedby="basic-addon1">
+							</div>
+
+							<h5 class="my-h5">Body Type</h5>
+							<div class="my-input-group">
+								<input type="text" class="form-control" placeholder="Body Type"
+									aria-describedby="basic-addon1">
+							</div>
+							<h5 class="my-h5"></h5>
+							<div class="my-input-group">
+								<button type="button" class="btn btn-primary">AddCar</button>
+							</div>
+
+
+						</div>
+						<div class="my-hr-row">
+							<hr class="myHr">
+						</div>
+					</ul>
+				</div>
+
 
 
 
@@ -185,28 +300,28 @@
 						<li class="sidebar-brand">
 							<h4 class="my-h4">Home</h4>
 						</li>
-						<div class="row">
+						<div class="my-hr-row">
 							<hr class="myHr">
 						</div>
 						<!-- <li><a href="#" data-toggle="modal" data-target="#myModal">Dashboard</a></li> -->
 						<li><a href="#" id="MyCar-menu">MyCar</a></li>
-						<div class="row">
+						<div class="my-hr-row">
 							<hr class="myHr">
 						</div>
 						<li><a href="#" id="BreakDown-menu">BreakDown</a></li>
-						<div class="row">
+						<div class="my-hr-row">
 							<hr class="myHr">
 						</div>
 						<li><a href="#" id="My-Insurance-menu">My-Insurance</a></li>
-						<div class="row">
+						<div class="my-hr-row">
 							<hr class="myHr">
 						</div>
 						<li><a href="#" id="Service-Book-contact-menu">Service-Book</a></li>
-						<div class="row">
+						<div class="my-hr-row">
 							<hr class="myHr">
 						</div>
 						<li><a href="#" id="BreakDownHistory-contact-menu">BreakDownHistory</a></li>
-						<div class="row">
+						<div class="my-hr-row">
 							<hr class="myHr">
 						</div>
 
@@ -216,7 +331,9 @@
 		</div>
 	</div>
 
-	<div class="modal fade" tabindex="-1" role="dialog" id="myModal">
+	<div class="modal fade" tabindex="-1" role="dialog"
+		id="MyCarDetailsModal">
+		<!-- TO-DO Need to automatically populate from DB. -->
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
 				<div class="modal-header ">
@@ -224,29 +341,87 @@
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title">Modal title</h4>
+					<h4 class="modal-title" id="MyCarNameHeading">Modal Title</h4>
 				</div>
-				<div class="modal-body">
-					<p>Search Vendors&hellip;</p>
-					<div class="input-group">
-						<span class="input-group-addon"> <input type="radio"
-							aria-label="..." id="buffer-radio-btn">
-						</span> <input type="text" placeholder="Around Me(Radius in KM)"
-							class="form-control" aria-label="...">
+				<div class="modal-body" id="MyCarDetailsModalBody">
+					<h5 class="my-h5">Registration#</h5>
+					<div class="my-input-group">
+						<input type="text" class="form-control"
+							placeholder="Registration#" aria-describedby="basic-addon1">
 					</div>
-					<br>
-					<div class="input-group">
-						<span class="input-group-addon"> <input type="radio"
-							aria-label="..." checked id="drive-time-radio-btn">
-						</span> <input type="text" placeholder="Within Drive Time(minutes) "
-							class="form-control" aria-label="...">
+
+					<h5 class="my-h5">CarBrand</h5>
+					<div class="my-input-group">
+						<input type="text" class="form-control" placeholder="CarBrand"
+							aria-describedby="basic-addon1">
 					</div>
-					<!-- /input-group -->
+					<h5 class="my-h5">CarBrand</h5>
+					<div class="my-input-group">
+						<input type="text" class="form-control" placeholder="CarBrand"
+							aria-describedby="basic-addon1">
+					</div>
+					<h5 class="my-h5">CarBrand</h5>
+					<div class="my-input-group">
+						<input type="text" class="form-control" placeholder="CarBrand"
+							aria-describedby="basic-addon1">
+					</div>
+					<h5 class="my-h5">CarBrand</h5>
+					<div class="my-input-group">
+						<input type="text" class="form-control" placeholder="CarBrand"
+							aria-describedby="basic-addon1">
+					</div>
+					<h5 class="my-h5">CarBrand</h5>
+					<div class="my-input-group">
+						<input type="text" class="form-control" placeholder="CarBrand"
+							aria-describedby="basic-addon1">
+					</div>
+					<h5 class="my-h5">CarBrand</h5>
+					<div class="my-input-group">
+						<input type="text" class="form-control" placeholder="CarBrand"
+							aria-describedby="basic-addon1">
+					</div>
+					<h5 class="my-h5">CarBrand</h5>
+					<div class="my-input-group">
+						<input type="text" class="form-control" placeholder="CarBrand"
+							aria-describedby="basic-addon1">
+					</div>
+					<h5 class="my-h5">CarBrand</h5>
+					<div class="my-input-group">
+						<input type="text" class="form-control" placeholder="CarBrand"
+							aria-describedby="basic-addon1">
+					</div>
+					<h5 class="my-h5">CarBrand</h5>
+					<div class="my-input-group">
+						<input type="text" class="form-control" placeholder="CarBrand"
+							aria-describedby="basic-addon1">
+					</div>
+					<h5 class="my-h5">CarBrand</h5>
+					<div class="my-input-group">
+						<input type="text" class="form-control" placeholder="CarBrand"
+							aria-describedby="basic-addon1">
+					</div>
+					<h5 class="my-h5">CarBrand</h5>
+					<div class="my-input-group">
+						<input type="text" class="form-control" placeholder="CarBrand"
+							aria-describedby="basic-addon1">
+					</div>
+					<h5 class="my-h5">CarBrand</h5>
+					<div class="my-input-group">
+						<input type="text" class="form-control" placeholder="CarBrand"
+							aria-describedby="basic-addon1">
+					</div>
+					<h5 class="my-h5">CarBrand</h5>
+					<div class="my-input-group">
+						<input type="text" class="form-control" placeholder="CarBrand"
+							aria-describedby="basic-addon1">
+					</div>
+
+
 
 				</div>
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Search</button>
+
 				</div>
 			</div>
 			<!-- /.modal-content -->

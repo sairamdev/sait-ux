@@ -85,12 +85,14 @@
 .sidebar-nav li {
 	text-indent: 20px;
 	line-height: 40px;
+	height: 38px;
 }
 
 .sidebar-nav li a {
 	display: block;
 	text-decoration: none;
 	color: white;
+	    width: 315px;
 }
 
 .myHr
@@ -99,6 +101,14 @@
     margin-bottom: 2px;
     border: 0;
     border-top: 1px solid #eee;
+}
+.my-btn-carinfo
+{
+bottom: 41px;
+    left: 173px;
+    border-radius: 17px;
+    background-color: transparent;
+    border: transparent;
 }
 
 
@@ -202,14 +212,14 @@ html,body {
 	-moz-transition: all 0.5s ease;
 	-o-transition: all 0.5s ease;
 	transition: all 0.5s ease;
-	width: 256px
+	width: 315px;
 }
 
 .indvdl-menu-item {
 	position: fixed;
 	/* z-index: 2222; */
 	margin-left: -512px;
-	width: 256px;
+	width: 315px;
 	height: 100%;
 	overflow-y: auto;
 	background: #1c3c46;
@@ -251,6 +261,74 @@ html,body {
 .menu-div-slide-btn {
 	margin-left: 189px;
 	margin-top: -48px;
+}
+
+
+#delete-car-gylph {
+     color: white;
+    left: 15px;
+    position: relative;
+}
+
+.MyCarGylphs
+{
+	 color: white;
+    left: 15px;
+    position: relative;
+}
+
+#edit-car-gylph{
+	
+	  top: -39px;
+    left: 44px;
+	
+	
+}
+  
+#MyCarParagraph
+{
+	color: white;
+    text-align: center;
+}
+
+#AddCarDetailsDiv
+{
+	left: 10px;
+    position: relative;
+    height: 110vh;
+}
+
+#MyCarDetailsModalBody
+{
+
+    position: relative;
+    height: 350px;
+    overflow-y: auto;
+    width: inherit;
+    overflow-x: hidden;
+}
+
+.my-hr-row{
+	margin-right: -15px;
+    margin-left: -15px;
+    width: 330px;
+}
+.my-h5 {
+	font-size: 15px;
+    left: 17px;
+    position: relative;
+    color: white;
+}
+.my-input-group{
+    position: relative;
+    width: 100%;
+    display: table;
+    border-collapse: separate;
+    left: 6px;
+}
+
+.my-li-mycar-a{
+	width:0px !important;
 }
 
 @media ( min-width :768px) {
