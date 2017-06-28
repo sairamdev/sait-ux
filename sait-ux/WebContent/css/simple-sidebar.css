@@ -319,6 +319,12 @@ html,body {
     position: relative;
     color: white;
 }
+.my-h5-for-modal {
+	font-size: 15px;
+    left: 17px;
+    position: relative;
+    color: black;
+}
 .my-input-group{
     position: relative;
     width: 100%;
