@@ -209,7 +209,7 @@
 				</div>
 
 				<div class="indvdl-menu-item" id="MyCarAddContents-div">
-					<div></div>
+
 					<ul class="sidebar-nav">
 						<li class="sidebar-brand">
 							<h4 class="my-h4">AddCar</h4> <a class="menu-div-slide-btn"
@@ -222,77 +222,31 @@
 						</div>
 						<div id="AddCarDetailsDiv">
 
-							<h5 class="my-h5">Registration#</h5>
+							<script type="template" id="CarInputData">
+{{#carAttrData}}
+							<br>
 							<div class="my-input-group">
+
 								<input type="text" class="form-control"
-									placeholder="Registration#" aria-describedby="basic-addon1">
-							</div>
-
-							<h5 class="my-h5">CarBrand</h5>
-							<div class="my-input-group">
-								<input type="text" class="form-control" placeholder="CarBrand"
-									aria-describedby="basic-addon1">
-							</div>
-
-							<h5 class="my-h5">Purchasing Year</h5>
-							<div class="my-input-group">
+									placeholder="{{Make}}" aria-describedby="basic-addon1"
+									data-toggle="tooltip" title="{{Make}}"> <br>
 								<input type="text" class="form-control"
-									placeholder="Purchasing Year(MM/DD/YYYY)"
-									aria-describedby="basic-addon1">
+									placeholder="{{FuelType}}" aria-describedby="basic-addon1"
+									data-toggle="tooltip" title="{{FuelType}}"> <br>
+								
+
 							</div>
-
-
-							<h5 class="my-h5">Enter km</h5>
-							<div class="my-input-group">
-								<input type="text" class="form-control"
-									placeholder="Enter km Travelled"
-									aria-describedby="basic-addon1">
-							</div>
-
-							<h5 class="my-h5">Color</h5>
-							<div class="my-input-group">
-								<input type="text" class="form-control" placeholder="Color"
-									aria-describedby="basic-addon1">
-							</div>
-
-							<h5 class="my-h5">Fuel Type</h5>
-							<div class="my-input-group">
-								<input type="text" class="form-control" placeholder="Fuel Type"
-									aria-describedby="basic-addon1">
-							</div>
-
-							<h5 class="my-h5">Mileages km</h5>
-							<div class="my-input-group">
-								<input type="text" class="form-control"
-									placeholder="Mileages km" aria-describedby="basic-addon1">
-							</div>
-
-							<h5 class="my-h5">Transmission Type</h5>
-							<div class="my-input-group">
-								<input type="text" class="form-control"
-									placeholder="Transmission Type" aria-describedby="basic-addon1">
-							</div>
-
-							<h5 class="my-h5">Body Type</h5>
-							<div class="my-input-group">
-								<input type="text" class="form-control" placeholder="Body Type"
-									aria-describedby="basic-addon1">
-							</div>
-							<h5 class="my-h5"></h5>
-							<div class="my-input-group">
-								<button type="button" class="btn btn-primary">AddCar</button>
-							</div>
-
-
+							<br>
+{{/carAttrData}}
+</script>
 						</div>
-						<div class="my-hr-row">
-							<hr class="myHr">
-						</div>
+						
+
+							<div class="my-hr-row">
+								<hr class="myHr">
+							</div>
 					</ul>
 				</div>
-
-
-
 
 				<div class="menu-item-div" id="main-menu-div">
 					<ul class="sidebar-nav">
@@ -344,16 +298,16 @@
 					<h4 class="modal-title" id="MyCarNameHeading">Car Info</h4>
 				</div>
 				<div class="modal-body" id="MyCarDetailsModalBody">
-				<!-- The below piece of HTML should be auto generated based on the incoming data.
+					<!-- The below piece of HTML should be auto generated based on the incoming data.
 				Start -->
-				
-				
+
+
 					<!-- <h5 class="my-h5-for-modal">Registration#</h5>
 					<div class="my-input-group">
 						<input type="text" class="form-control"
 							placeholder="Registration#" aria-describedby="basic-addon1">
 					</div> -->
-					
+
 					<!-- End -->
 
 				</div>
@@ -379,6 +333,7 @@
 		src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyB9uJRahtJHZcPTQMskenU-FzhdJ8G-zRI&libraries=places"></script>
 	<script type="text/javascript" src="js/UXInteractions.js"></script>
 	<script type="text/javascript" src="js/geolocation.js"></script>
+	<script type="text/javascript" src="js/mustache.min.js"></script>
 	<script type="text/javascript" src="js/TestData.js"></script>
 	<script type="text/javascript" src="js/UI-Data-Util.js"></script>
 

@@ -2,11 +2,15 @@
  * 
  */
 
-carDetailsData = [ {
-	"Make" : "Audi",
-	"FuelType" : "Diesel"
+carAttributes = {
+	"carAttrData" : [ {
+		"Make" : "Make",
+		"FuelType" : "FuelType"
 
-}, {} ]
+	} ]
+}
+
+// carDetailsData = {"cardata":["sai,","dev","ram"]}
 
 var serviceBook = {
 
