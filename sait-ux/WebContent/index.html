@@ -87,7 +87,7 @@
 
 						</li>
 
-						<a href=# class="MyCarGylphs" id="AddMyCar"><i
+						<a href=# class="MyCarGylphs" id="AddMyCar" onclick="initAddCarForm()"><i
 							class="glyphicon glyphicon-plus">AddCar</i></a>
 
 						<div class="row">
@@ -100,21 +100,28 @@
 							<div class="row">
 								<hr class="myHr">
 							</div>
-
-							<li><a href="#" data-toggle="modal"
-								data-target="#MyCarDetailsModal"> Add breakDown Info </a>
+							
+<div id="my-registered-cars-Div">
+<script type="template" id="my-registered-cars">
+{{#myCars}}
+							<li><a href="#" data-toggle="modal" id={{carId}} onclick="populateCarDetailsModal(id)"
+								> {{carId}} </a>
 								<div class="btn-group  my-btn-carinfo" role="group"
 									aria-label="...">
+									
 									<a href="#" class="my-li-mycar-a"
 										onclick="alert('add code for deletion')"><span
 										id="delete-car-gylph" class="glyphicon glyphicon-remove"
-										aria-hidden="true"></span></a> <a href="#" class="my-li-mycar-a"
-										onclick="alert('add code for deletion')"><span
-										id="edit-car-gylph" class="glyphicon glyphicon-pencil"
 										aria-hidden="true"></span></a>
+										
+										
+										
 
 
 								</div></li>
+{{/myCars}}
+</script>
+								</div>
 
 							<div class="row">
 								<hr class="myHr">
@@ -258,7 +265,7 @@
 							<hr class="myHr">
 						</div>
 						<!-- <li><a href="#" data-toggle="modal" data-target="#myModal">Dashboard</a></li> -->
-						<li><a href="#" id="MyCar-menu">MyCar</a></li>
+						<li><a href="#" id="MyCar-menu" onclick="showMyCars()">MyCar</a></li>
 						<div class="my-hr-row">
 							<hr class="myHr">
 						</div>
@@ -298,19 +305,34 @@
 					<h4 class="modal-title" id="MyCarNameHeading">Car Info</h4>
 				</div>
 				<div class="modal-body" id="MyCarDetailsModalBody">
+
+
+
+					<script type="template" id="MyCarDetailsModalTemplate">
+
 					<!-- The below piece of HTML should be auto generated based on the incoming data.
 				Start -->
 
+{{#myCarObj}}
+							<br>
+							<div class="my-input-group">
 
-					<!-- <h5 class="my-h5-for-modal">Registration#</h5>
-					<div class="my-input-group">
-						<input type="text" class="form-control"
-							placeholder="Registration#" aria-describedby="basic-addon1">
-					</div> -->
+								<input type="text" class="form-control"
+									placeholder="{{carId}}" aria-describedby="basic-addon1"
+									data-toggle="tooltip" title="{{carId}}"> <br>
+								<input type="text" class="form-control"
+									placeholder="{{carRegistraionNum}}" aria-describedby="basic-addon1"
+									data-toggle="tooltip" title="{{carRegistraionNum}}"> <br>
+								
+
+							</div>
+							<br>
+{{/myCarObj}}
 
 					<!-- End -->
-
+</script>
 				</div>
+
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
