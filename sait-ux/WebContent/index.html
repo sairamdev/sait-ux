@@ -29,6 +29,10 @@
 
 <body>
 	<div id="map-canvas"></div>
+	<div id="template-my-regstrd-cars" style="display: none;"></div>
+	<div id="template-my-regstrd-cars-modal" style="display: none;"></div>
+	<div id="template-CarInputData" style="display: none;"></div>
+	<div id="template-breakdowndata" style="display: none;"></div>
 	<div class="container-fluid">
 		<div class="row">
 			<nav class="navbar my-navbar navbar-inverse">
@@ -87,7 +91,8 @@
 
 						</li>
 
-						<a href=# class="MyCarGylphs" id="AddMyCar" onclick="initAddCarForm()"><i
+						<a href=# class="MyCarGylphs" id="AddMyCar"
+							onclick="initAddCarForm()"><i
 							class="glyphicon glyphicon-plus">AddCar</i></a>
 
 						<div class="row">
@@ -100,28 +105,8 @@
 							<div class="row">
 								<hr class="myHr">
 							</div>
-							
-<div id="my-registered-cars-Div">
-<script type="template" id="my-registered-cars">
-{{#myCars}}
-							<li><a href="#" data-toggle="modal" id={{carId}} onclick="populateCarDetailsModal(id)"
-								> {{carId}} </a>
-								<div class="btn-group  my-btn-carinfo" role="group"
-									aria-label="...">
-									
-									<a href="#" class="my-li-mycar-a"
-										onclick="alert('add code for deletion')"><span
-										id="delete-car-gylph" class="glyphicon glyphicon-remove"
-										aria-hidden="true"></span></a>
-										
-										
-										
 
-
-								</div></li>
-{{/myCars}}
-</script>
-								</div>
+							<div id="my-registered-cars-Div"></div>
 
 							<div class="row">
 								<hr class="myHr">
@@ -146,11 +131,18 @@
 						<div class="row">
 							<hr class="myHr">
 						</div>
-						<li><a href="#" data-toggle="modal" data-target="#myModal">Add
-								breakDown Info</a></li>
-						<div class="row">
+						<div id=breakDownDataDiv class="addDataDiv">
+						<!-- <li>
+						
+						<a href="#" data-toggle="modal" data-target="#myModal">Add
+								breakDown Info</a>
+								
+								
+								</li> -->
+								</div>
+						<!-- <div class="row">
 							<hr class="myHr">
-						</div>
+						</div> -->
 					</ul>
 				</div>
 
@@ -227,31 +219,15 @@
 						<div class="my-hr-row">
 							<hr class="myHr">
 						</div>
-						<div id="AddCarDetailsDiv">
+						<div id="AddCarDetailsDiv" class="addDataDiv">
 
-							<script type="template" id="CarInputData">
-{{#carAttrData}}
-							<br>
-							<div class="my-input-group">
-
-								<input type="text" class="form-control"
-									placeholder="{{Make}}" aria-describedby="basic-addon1"
-									data-toggle="tooltip" title="{{Make}}"> <br>
-								<input type="text" class="form-control"
-									placeholder="{{FuelType}}" aria-describedby="basic-addon1"
-									data-toggle="tooltip" title="{{FuelType}}"> <br>
-								
-
-							</div>
-							<br>
-{{/carAttrData}}
-</script>
+							
 						</div>
-						
 
-							<div class="my-hr-row">
-								<hr class="myHr">
-							</div>
+
+						<div class="my-hr-row">
+							<hr class="myHr">
+						</div>
 					</ul>
 				</div>
 
@@ -305,32 +281,10 @@
 					<h4 class="modal-title" id="MyCarNameHeading">Car Info</h4>
 				</div>
 				<div class="modal-body" id="MyCarDetailsModalBody">
-
-
-
-					<script type="template" id="MyCarDetailsModalTemplate">
-
 					<!-- The below piece of HTML should be auto generated based on the incoming data.
 				Start -->
-
-{{#myCarObj}}
-							<br>
-							<div class="my-input-group">
-
-								<input type="text" class="form-control"
-									placeholder="{{carId}}" aria-describedby="basic-addon1"
-									data-toggle="tooltip" title="{{carId}}"> <br>
-								<input type="text" class="form-control"
-									placeholder="{{carRegistraionNum}}" aria-describedby="basic-addon1"
-									data-toggle="tooltip" title="{{carRegistraionNum}}"> <br>
-								
-
-							</div>
-							<br>
-{{/myCarObj}}
-
 					<!-- End -->
-</script>
+
 				</div>
 
 				<div class="modal-footer">

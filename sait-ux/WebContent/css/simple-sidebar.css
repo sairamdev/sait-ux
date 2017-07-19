@@ -291,11 +291,18 @@ html,body {
     text-align: center;
 }
 
-#AddCarDetailsDiv
+/* #AddCarDetailsDiv
 {
 	left: 10px;
     position: relative;
     height: 110vh;
+} */
+
+.addDataDiv{
+	left: 10px;
+    position: relative;
+    height: 110vh;
+	
 }
 
 #MyCarDetailsModalBody

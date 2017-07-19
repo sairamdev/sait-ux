@@ -14,6 +14,7 @@ $("#MyCar-menu").click(function(e) {
 $("#BreakDown-menu").click(function(e) {
 	e.preventDefault();
 	sendontop("breakDown-div");
+	showBreakDownRequestForm();
 });
 
 
