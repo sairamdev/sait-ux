@@ -44,12 +44,12 @@ var serviceBook = {
 var brekDownHistory = {
 		"myBreakDowns" : [ {
 			"carId" : "ID1",
-			"brkDwnId" : "ID1",
+			"brkDwnId" : "BrkID1",
 			"carRegistraionNum" : "12345"
 
 		}, {
 			"carId" : "ID2",
-			"brkDwnId" : "ID2",
+			"brkDwnId" : "BrkID2",
 			"carRegistraionNum" : "123453"
 
 		} ]

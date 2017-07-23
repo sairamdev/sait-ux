@@ -1,4 +1,3 @@
-
 $("#menu-toggle").click(function(e) {
 	e.preventDefault();
 	$("#sidebar-wrapper").toggleClass("toggled");
@@ -17,12 +16,10 @@ $("#BreakDown-menu").click(function(e) {
 	showBreakDownRequestForm();
 });
 
-
 $("#My-Insurance-menu").click(function(e) {
 	e.preventDefault();
 	sendontop("My-Insurance-div");
 });
-
 
 $("#Service-Book-contact-menu").click(function(e) {
 	e.preventDefault();
@@ -30,6 +27,7 @@ $("#Service-Book-contact-menu").click(function(e) {
 });
 
 $("#BreakDownHistory-contact-menu").click(function(e) {
+	showBreakDownHistory();
 	e.preventDefault();
 	sendontop("BreakDownHistory-div");
 });
@@ -39,15 +37,13 @@ $("#AddMyCar").click(function(e) {
 	sendontop("MyCarAddContents-div");
 });
 
-
 var my_index = 10000; // global var on page
 function sendontop(div_id) {
 	div_id = document.getElementById(div_id);
 	div_id.style.zIndex = my_index++;
 	div_id.style.marginLeft = "-256px";
 }
-var leftMargin="-570px";
-
+var leftMargin = "-570px";
 
 $("#prevs-mnu-MyCar")
 		.click(
@@ -69,55 +65,45 @@ $("#prevs-mnu-brkdwn")
 
 				});
 
-
 $("#prevs-mnu-My-Insurance")
-.click(
-		function(e) {
-			e.preventDefault();
-			var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
-			var divElement = document.getElementById(prevsDivId);
-			divElement.style.marginLeft =leftMargin;
+		.click(
+				function(e) {
+					e.preventDefault();
+					var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
+					var divElement = document.getElementById(prevsDivId);
+					divElement.style.marginLeft = leftMargin;
 
-		});
-
-
-
+				});
 
 $("#prevs-mnu-Service-Book")
-.click(
-		function(e) {
-			e.preventDefault();
-			var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
-			var divElement = document.getElementById(prevsDivId);
-			divElement.style.marginLeft = leftMargin;
+		.click(
+				function(e) {
+					e.preventDefault();
+					var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
+					var divElement = document.getElementById(prevsDivId);
+					divElement.style.marginLeft = leftMargin;
 
-		});
+				});
 
 $("#prevs-mnu-BreakDownHistory")
-.click(
-		function(e) {
-			e.preventDefault();
-			var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
-			var divElement = document.getElementById(prevsDivId);
-			divElement.style.marginLeft = leftMargin;
+		.click(
+				function(e) {
+					e.preventDefault();
+					var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
+					var divElement = document.getElementById(prevsDivId);
+					divElement.style.marginLeft = leftMargin;
 
-		});
+				});
 
 $("#prevs-mnu-AddCar")
-.click(
-		function(e) {
-			e.preventDefault();
-			var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
-			var divElement = document.getElementById(prevsDivId);
-			divElement.style.marginLeft = leftMargin;
+		.click(
+				function(e) {
+					e.preventDefault();
+					var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
+					var divElement = document.getElementById(prevsDivId);
+					divElement.style.marginLeft = leftMargin;
 
-		});
-
-
-
-
-
-
+				});
 
 $('#drive-time-radio-btn').click(function() {
 	if ($(this).is(':checked')) {

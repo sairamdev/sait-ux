@@ -105,7 +105,7 @@ var showBreakDownHistory=function()
 						brekDownHistory);
 				$("#myBreakDownHistoryDiv").html(rendered);
 			});
-	
+	initCarBreakDownHistoryModal();
 }
 
 
