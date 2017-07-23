@@ -49,7 +49,7 @@ var handleLocationError = function(error) {
 var reverseGeoCode = function(position) {
 
 	var geocoder = new google.maps.Geocoder;
-	 var infowindow = new google.maps.InfoWindow;
+	var infowindow = new google.maps.InfoWindow;
 
 	geocoder.geocode({
 		'location' : position
@@ -76,7 +76,8 @@ var reverseGeoCode = function(position) {
 
 var setCurrentAddress = function(addressResult, position) {
 	var adrComponents = addressResult.address_components;
-	$("#CurrentPosition").val(position.lat.toPrecision(5)+"," +position.lng.toPrecision(5));
+	$("#CurrentPosition").val(
+			position.lat.toPrecision(5) + "," + position.lng.toPrecision(5));
 	$("#Locality").val(adrComponents[2].long_name);
 	$("#StreetAddress").val(adrComponents[1].long_name);
 	$("#City").val(adrComponents[4].long_name);

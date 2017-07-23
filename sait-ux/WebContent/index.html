@@ -33,6 +33,7 @@
 	<div id="template-my-regstrd-cars-modal" style="display: none;"></div>
 	<div id="template-CarInputData" style="display: none;"></div>
 	<div id="template-breakdowndata" style="display: none;"></div>
+	<div id="template-breakdowndata" style="display: none;"></div>
 	<div class="container-fluid">
 		<div class="row">
 			<nav class="navbar my-navbar navbar-inverse">
@@ -195,8 +196,9 @@
 						<div class="row">
 							<hr class="myHr">
 						</div>
-						<li><a href="#" data-toggle="modal" data-target="#myModal">Add
-								BreakDownHistory</a></li>
+						<div id=myBreakDownHistoryDiv></div>
+						<!-- <li><a href="#" data-toggle="modal" data-target="#myModal">Add
+								BreakDownHistory</a></li> -->
 						<div class="row">
 							<hr class="myHr">
 						</div>
@@ -275,6 +277,39 @@
 					<h4 class="modal-title" id="MyCarNameHeading">Car Info</h4>
 				</div>
 				<div class="modal-body" id="MyCarDetailsModalBody">
+					<!-- The below piece of HTML should be auto generated based on the incoming data.
+				Start -->
+					<!-- End -->
+
+				</div>
+
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+	
+	
+	
+	
+	<div class="modal fade" tabindex="-1" role="dialog"
+		id="myCarBreakDownHistoryModal">
+		<!-- TO-DO Need to automatically populate from DB. -->
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header ">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="MyCarNameHeading">Break-Down Details</h4>
+				</div>
+				<div class="modal-body" id="myCarBrkDownModalBody">
 					<!-- The below piece of HTML should be auto generated based on the incoming data.
 				Start -->
 					<!-- End -->

@@ -2,7 +2,7 @@
 //$("#modalDiv").html(output);
 
 var carModalData;
-
+var breakDownHistoryModal;
 // This function is used to load the template for creating new car data.
 var initAddCarForm = function() {
 
@@ -92,4 +92,50 @@ var showBreakDownRequestForm=function()
 						myCarBreakDownDetails);
 				$("#breakDownDataDiv").html(rendered);
 			});
+}
+
+var showBreakDownHistory=function()
+{
+	$("#myBreakDownHistoryDiv").load(
+			"Templates.html #myBreakDownsDiv-template",
+			function() {
+				var carBreakDownTemplate = document
+						.getElementById("myBreakDownsDiv-template").innerHTML;
+				var rendered = Mustache.render(carBreakDownTemplate,
+						brekDownHistory);
+				$("#myBreakDownHistoryDiv").html(rendered);
+			});
+	
+}
+
+
+var initCarBreakDownHistoryModal = function() {
+	var carBrkDownModalData = [];
+	var myObj = {}
+	for (carBrkDownObjsInx in brekDownHistory.myBreakDowns) {
+		//console.log(myCarDetails.myCars[carObjsInx])
+		var myObj = {};
+		myObj.myCarBrkDownObj = brekDownHistory.myBreakDowns[carBrkDownObjsInx];
+		carBrkDownModalData[brekDownHistory.myBreakDowns[carBrkDownObjsInx]["brkDwnId"]] = myObj;
+
+	}
+	breakDownHistoryModal=carBrkDownModalData;
+
+	return carBrkDownModalData;
+
+}
+
+
+var populateBreakDownHistoryModal=function(brkDwnId)
+{
+	$("#myCarBrkDownModalBody").load(
+			"Templates.html #myCarBreakDownDetails-template",
+			function() {
+				var myCarObjs = '';
+				myCarBrkDownObjs = document
+						.getElementById('myCarBreakDownDetails-template').innerHTML;
+				var output = Mustache.render(myCarBrkDownObjs, breakDownHistoryModal[brkDwnId]);
+				$("#myCarBrkDownModalBody").html(output);
+			});
+
 }

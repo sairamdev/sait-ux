@@ -43,8 +43,8 @@
 
 
 	{{#myCarObj}} <br>
-	<div class="my-input-group">
-	<input type="text" class="form-control" placeholder="{{carId}}"
+	<div class="">
+		<input type="text" class="form-control" placeholder="{{carId}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
 			title="{{carId}}"> <br> <input type="text"
 			class="form-control" placeholder="{{carRegistraionNum}}"
@@ -59,66 +59,92 @@
 
 
 <div id="carBreakDownData">
-	{{#myCarBreakDownData}} 
-	
-	<br>
+	{{#myCarBreakDownData}} <br>
 
 	<div class="my-input-group">
 
-		<input id= "CurrentPosition" type="text" class="form-control" placeholder="{{CurrentPosition}}"
-			aria-describedby="basic-addon0" data-toggle="tooltip"
-			title="{{CurrentPosition}}" > <br>
-		
-		<input id ="Locality" type="text" class="form-control" placeholder="{{Locality}}"
+		<input id="CurrentPosition" type="text" class="form-control"
+			placeholder="{{CurrentPosition}}" aria-describedby="basic-addon0"
+			data-toggle="tooltip" title="{{CurrentPosition}}"> <br>
+
+		<input id="Locality" type="text" class="form-control"
+			placeholder="{{Locality}}" aria-describedby="basic-addon1"
+			data-toggle="tooltip" title="{{Locality}}"> <br> <input
+			id="StreetAddress" type="text" class="form-control"
+			placeholder="{{StreetAddress}}" aria-describedby="basic-addon1"
+			data-toggle="tooltip" title="{{StreetAddress}}"> <br> <input
+			id="City" type="text" class="form-control" placeholder="{{City}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
-			title="{{Locality}}"> <br> 
-			
-			<input  id ="StreetAddress" type="text"
-			class="form-control" placeholder="{{StreetAddress}}"
-			aria-describedby="basic-addon1" data-toggle="tooltip"
-			title="{{StreetAddress}}"> <br>
-			
-			<input id="City" type="text"
-			class="form-control" placeholder="{{City}}"
-			aria-describedby="basic-addon1" data-toggle="tooltip"
-			title="{{City}}"> <br>
-			
-						
-			<input id="District" type="text"
+			title="{{City}}"> <br> <input id="District" type="text"
 			class="form-control" placeholder="{{District}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
-			title="{{District}}"> <br>
-			
-			<input id="State" type="text"
+			title="{{District}}"> <br> <input id="State" type="text"
 			class="form-control" placeholder="{{State}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
-			title="{{State}}"> <br>
-			
-			<input id="ZipCode" type="text"
+			title="{{State}}"> <br> <input id="ZipCode" type="text"
 			class="form-control" placeholder="{{Zip Code}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
-			title="{{Zip Code}}"> <br>
-			
-			<input id="Country" type="text"
-			class="form-control" placeholder="{{Country}}"
+			title="{{Zip Code}}"> <br> <input id="Country"
+			type="text" class="form-control" placeholder="{{Country}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
-			title="{{Country}}"> <br>
-			
-			<input id="Problem" type="text"
-			class="form-control" placeholder="{{Problem}}"
+			title="{{Country}}"> <br> <input id="Problem"
+			type="text" class="form-control" placeholder="{{Problem}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
 			title="{{Problem}}"> <br>
-			
-			
-			
-			
-		<button type="button" class="btn btn-primary btn-space" onclick="getMyLocation(reverseGeoCode)">MyLocation</button>
+
+
+
+
+		<button type="button" class="btn btn-primary btn-space"
+			onclick="getMyLocation(reverseGeoCode)">MyLocation</button>
 		<button type="button" class="btn btn-primary btn-space">Amigoo</button>
 
 
 	</div>
-	
+
 	<br> {{/myCarBreakDownData}}
 </div>
+
+
+<!-- Template for Capturing the New Car details of the logged in User. -->
+<!-- Start -->
+
+<div id="myBreakDownsDiv-template">
+	{{#myBreakDowns}}
+	<li><a href="#" data-toggle="modal" id={{brkDwnId}}
+		onclick="populateBreakDownHistoryModal(id)"
+		data-target="#myCarBreakDownHistoryModal"> {{brkDwnId}} </a>
+		<div class="btn-group  my-btn-carinfo" role="group" aria-label="...">
+
+			<a href="#" class="my-li-mycar-a"
+				onclick="alert('add code for deletion')"><span
+				id="delete-car-gylph" class="glyphicon glyphicon-remove"
+				aria-hidden="true"></span></a>
+		</div></li> {{/myBreakDowns}}
+</div>
+
+<!-- End -->
+
+
+
+<!-- Template for populating Each car details of the logged in User. -->
+<!-- Start -->
+<div id="myCarBreakDownDetails-template">
+
+
+	{{#myCarBrkDownObj}} <br>
+	<div class="">
+		<input type="text" class="form-control" placeholder="{{carId}}"
+			aria-describedby="basic-addon1" data-toggle="tooltip"
+			title="{{carId}}"> <br> <input type="text"
+			class="form-control" placeholder="{{carRegistraionNum}}"
+			aria-describedby="basic-addon1" data-toggle="tooltip"
+			title="{{carRegistraionNum}}"> <br>
+
+
+	</div>
+	<br> {{/myCarBrkDownObj}}
+</div>
+<!-- End -->
 
 
