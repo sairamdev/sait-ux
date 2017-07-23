@@ -24,9 +24,12 @@ myCarDetails = {
 
 myCarBreakDownDetails = {
 	"myCarBreakDownData" : [ {
-		"Location" : "Location",
-		"Street Address" : "Street Address",
+		"CurrentPosition" : "Current Position",
+		"Locality" : "Locality",
+		"StreetAddress" : "Street Address",
 		"City" : "City",
+		"District" : "District",
+		"State" : "State",
 		"Zip Code" : "Zip Code",
 		"Country" : "Country",
 		"Problem" : "Problem"

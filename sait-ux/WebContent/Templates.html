@@ -60,35 +60,51 @@
 
 <div id="carBreakDownData">
 	{{#myCarBreakDownData}} 
-	<li>
+	
 	<br>
+
 	<div class="my-input-group">
-<a class="navbar-brand" href="#" onclick="getMyLocation(showMyCurrentPostion)"> <i class="glyphicon glyphicon-map-marker"></i></a>
-		<input type="text" class="form-control" placeholder="{{Location}}"
+
+		<input id= "CurrentPosition" type="text" class="form-control" placeholder="{{CurrentPosition}}"
+			aria-describedby="basic-addon0" data-toggle="tooltip"
+			title="{{CurrentPosition}}" > <br>
+		
+		<input id ="Locality" type="text" class="form-control" placeholder="{{Locality}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
-			title="{{Location}}"> <br> 
+			title="{{Locality}}"> <br> 
 			
-			<input type="text"
-			class="form-control" placeholder="{{Street Address}}"
+			<input  id ="StreetAddress" type="text"
+			class="form-control" placeholder="{{StreetAddress}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
-			title="{{Street Address}}"> <br>
+			title="{{StreetAddress}}"> <br>
 			
-			<input type="text"
+			<input id="City" type="text"
 			class="form-control" placeholder="{{City}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
 			title="{{City}}"> <br>
 			
-			<input type="text"
+						
+			<input id="District" type="text"
+			class="form-control" placeholder="{{District}}"
+			aria-describedby="basic-addon1" data-toggle="tooltip"
+			title="{{District}}"> <br>
+			
+			<input id="State" type="text"
+			class="form-control" placeholder="{{State}}"
+			aria-describedby="basic-addon1" data-toggle="tooltip"
+			title="{{State}}"> <br>
+			
+			<input id="ZipCode" type="text"
 			class="form-control" placeholder="{{Zip Code}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
 			title="{{Zip Code}}"> <br>
 			
-			<input type="text"
+			<input id="Country" type="text"
 			class="form-control" placeholder="{{Country}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
 			title="{{Country}}"> <br>
 			
-			<input type="text"
+			<input id="Problem" type="text"
 			class="form-control" placeholder="{{Problem}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
 			title="{{Problem}}"> <br>
@@ -96,11 +112,12 @@
 			
 			
 			
-		<button type="button" class="btn btn-primary">Amigoo</button>
+		<button type="button" class="btn btn-primary btn-space" onclick="getMyLocation(reverseGeoCode)">MyLocation</button>
+		<button type="button" class="btn btn-primary btn-space">Amigoo</button>
 
 
 	</div>
-	</li>
+	
 	<br> {{/myCarBreakDownData}}
 </div>
 

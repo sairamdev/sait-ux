@@ -6,7 +6,7 @@ var carModalData;
 // This function is used to load the template for creating new car data.
 var initAddCarForm = function() {
 
-	$("#template-CarInputData").load(
+	$("#AddCarDetailsDiv").load(
 			"Templates.html #CarInputData",
 			function() {
 				var carDetailsTemplate = document
@@ -23,7 +23,7 @@ var initAddCarForm = function() {
 var showMyCars = function() {
 	// Add web service calls to fetch data of cars registerd to users account.
 	setCarDetailsModalData();
-	$("#template-my-regstrd-cars").load(
+	$("#my-registered-cars-Div").load(
 			"Templates.html #my-registered-cars",
 			function() {
 				var myRegisteredCarDetails = document
@@ -39,7 +39,7 @@ var showMyCars = function() {
 // by users.
 var populateCarDetailsModal = function(carID) {
 
-	$("#template-my-regstrd-cars-modal").load(
+	$("#MyCarDetailsModalBody").load(
 			"Templates.html #MyCarDetailsModalTemplate",
 			function() {
 				var myCarObjs = '';
@@ -83,7 +83,7 @@ var setCarDetailsModalData = function() {
 
 var showBreakDownRequestForm=function()
 {
-	$("#template-breakdowndata").load(
+	$("#breakDownDataDiv").load(
 			"Templates.html #carBreakDownData",
 			function() {
 				var carBreakDownTemplate = document

@@ -284,6 +284,7 @@ html,body {
 	
 	
 }
+.input.refresh {}
   
 #MyCarParagraph
 {
@@ -304,7 +305,9 @@ html,body {
     height: 110vh;
 	
 }
-
+.btn-space {
+    margin-right: 10px;
+}
 #MyCarDetailsModalBody
 {
 
@@ -333,11 +336,12 @@ html,body {
     color: black;
 }
 .my-input-group{
-    position: relative;
+     position: relative;
     width: 100%;
     display: table;
     border-collapse: separate;
-    left: 6px;
+    left: 13px;
+    height:100vh;
 }
 
 .my-li-mycar-a{
