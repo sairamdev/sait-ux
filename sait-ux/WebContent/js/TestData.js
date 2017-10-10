@@ -4,8 +4,14 @@
 
 carAttributes = {
 	"carAttrData" : [ {
-		"Make" : "Make",
-		"FuelType" : "FuelType"
+		"Brand" : "Brand",
+		"Model" : "FuelType",
+		"Year" : "Year",
+		"Variant":"Variant",
+		"Km-Driven":"Km-Driven",
+		"Fuel-Type":"Fuel-Type",
+		"Registration-Number":"Registration-Number"
+		
 
 	} ]
 }
