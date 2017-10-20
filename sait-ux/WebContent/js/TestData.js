@@ -19,11 +19,23 @@ carAttributes = {
 myCarDetails = {
 	"myCars" : [ {
 		"carId" : "ID1",
-		"carRegistraionNum" : "12345"
+		"Brand" : "Brand",
+		"Model" : "Model",
+		"Year" : "Year",
+		"Variant":"Variant",
+		"Km-Driven":"Km-Driven",
+		"Fuel-Type":"Fuel-Type",
+		"Registration-Number":"Registration-Number"
 
 	}, {
 		"carId" : "ID2",
-		"carRegistraionNum" : "1236645"
+		"Brand" : "Brand",
+		"Model" : "FuelType",
+		"Year" : "Year",
+		"Variant":"Variant",
+		"Km-Driven":"Km-Driven",
+		"Fuel-Type":"Fuel-Type",
+		"Registration-Number":"Registration-Number"
 
 	} ]
 }
