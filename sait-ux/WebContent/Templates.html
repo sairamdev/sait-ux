@@ -7,31 +7,31 @@
 
 		<input type="text" class="form-control" placeholder="{{Brand}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
-			title="{{Brand}}"> <br> <input type="text"
+			title="{{Brand}}" id="{{Brand}}"> <br> <input type="text"
 			class="form-control" placeholder="{{Model}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
-			title="{{Model}}"> <br>
+			title="{{Model}}" id="{{Model}}"> <br>
 			<input type="text"
 			class="form-control" placeholder="{{Year}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
-			title="{{Year}}"> <br>
+			title="{{Year}}" id="{{Year}}"> <br>
 			<input type="text"
 			class="form-control" placeholder="{{Variant}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
-			title="{{Variant}}"> <br>
+			title="{{Variant}}"  id="{{Variant}}"> <br>
 			<input type="text"
 			class="form-control" placeholder="{{Km-Driven}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
-			title="{{Km-Driven}}"> <br>
+			title="{{Km-Driven}}"  id="{{Km-Driven}}"> <br>
 			<input type="text"
 			class="form-control" placeholder="{{Fuel-Type}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
-			title="{{Fuel-Type}}"> <br>
+			title="{{Fuel-Type}}" id="{{Fuel-Type}}"> <br>
 			<input type="text"
 			class="form-control" placeholder="{{Registration-Number}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
-			title="{{Registration-Number}}"> <br>
-		<button type="button" class="btn btn-primary">Add</button>
+			title="{{Registration-Number}}" id="{{Registration-Number}}"> <br>
+		<button type="button" class="btn btn-primary" onclick="setMyCarDataToDb()">Add</button>
 
 
 	</div>
