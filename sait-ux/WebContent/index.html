@@ -28,13 +28,33 @@
 </head>
 
 <body>
+<div id="overlay" class="container fluid">
+
+
+            <div class="row row-centered pos" >
+                <div class="col-lg-8 col-xs-12 col-centered" >
+                    <div id="loader"></div>
+                    
+                
+                
+            </div></div>
+        
+
+
+
+</div>
 	<div id="map-canvas"></div>
 	<div id="template-my-regstrd-cars" style="display: none;"></div>
 	<div id="template-my-regstrd-cars-modal" style="display: none;"></div>
 	<div id="template-CarInputData" style="display: none;"></div>
 	<div id="template-breakdowndata" style="display: none;"></div>
 	<div id="template-breakdowndata" style="display: none;"></div>
+	
+	
+	
+	
 	<div class="container-fluid">
+	
 		<div class="row">
 			<nav class="navbar my-navbar navbar-inverse">
 				<div>
@@ -108,6 +128,7 @@
 							</div>
 
 							<div id="my-registered-cars-Div"></div>
+							
 
 							<div class="row">
 								<hr class="myHr">
@@ -293,10 +314,10 @@
 		<!-- /.modal-dialog -->
 	</div>
 	<!-- /.modal -->
-	
-	
-	
-	
+
+
+
+
 	<div class="modal fade" tabindex="-1" role="dialog"
 		id="myCarBreakDownHistoryModal">
 		<!-- TO-DO Need to automatically populate from DB. -->
@@ -307,7 +328,8 @@
 						aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
-					<h4 class="modal-title" id="MyCarNameHeading">Break-Down Details</h4>
+					<h4 class="modal-title" id="MyCarNameHeading">Break-Down
+						Details</h4>
 				</div>
 				<div class="modal-body" id="myCarBrkDownModalBody">
 					<!-- The below piece of HTML should be auto generated based on the incoming data.
@@ -341,6 +363,7 @@
 	<script type="text/javascript" src="js/mustache.min.js"></script>
 	<script type="text/javascript" src="js/TestData.js"></script>
 	<script type="text/javascript" src="js/UI-Data-Util.js"></script>
+	<script type="text/javascript" src="js/Web-Services-Util.js"></script>
 
 
 </body>
