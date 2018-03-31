@@ -32,10 +32,10 @@ $("#BreakDownHistory-contact-menu").click(function(e) {
 	sendontop("BreakDownHistory-div");
 });
 
-$("#AddMyCar").click(function(e) {
+/*$("#AddMyCar").click(function(e) {
 	e.preventDefault();
 	sendontop("MyCarAddContents-div");
-});
+});*/
 
 var my_index = 10000; // global var on page
 function sendontop(div_id) {

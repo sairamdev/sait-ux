@@ -5,7 +5,7 @@ var breakDownHistoryModal;
 //***********************MyCar and Associated Funtions Start**************//
 
 // This function is used to load the template for creating new car data.
-var initAddCarForm = function() {
+/*var initAddCarForm = function() {
 
 	$("#AddCarDetailsDiv").load(
 		"Templates.html #CarInputData",
@@ -18,7 +18,7 @@ var initAddCarForm = function() {
 		});
 
 }
-
+*/
 // This function is used to create a list of cars that are registered with the
 // user logged-in.
 var showMyCars = function() {
@@ -43,19 +43,52 @@ var populateCarDetailsModal = function(carID) {
 
 }
 
+
+// New Car Details input Modal
+
+
+var populateNewCarDetailsModal = function() {
+
+	$("#newCarDetailsModalBody").load(
+		"Templates.html #newCarDetailsModalTemplate",
+		function() {
+			var myCarObjs = '';
+			myCarObjs = document
+				.getElementById('newCarDetailsModalTemplate').innerHTML;
+			var output = Mustache.render(myCarObjs, carAttributes);
+			$("#newCarDetailsModalBody").html(output);
+		});
+
+}
+
+
+//
+
+
+
+
+
+
 // The below set of function is used to create a data structure for the modal to
 // consume.
 // Start
-
+var getLoggedInUserData=function(){
+	//Need to return user login information like user-id role from a webservice
+	//currently retturing a dummy value.
+	var userLoginData={"UserID":"251615"}
+	return userLoginData;
+}
 var initCarDetailsModalData = function() {
 
 	$("#loader").show();
 	$("#overlay").show()
+	userDetails=getLoggedInUserData()
 	reqObject = {
-		"url" : "https://192.168.1.9:8443/sait-services/rest/amigoo-services/getMyCarInfo",
+		"url" : "https://192.168.1.8:8443/sait-services/rest/amigoo-services/getMyCarInfo",
 		"srvcMethod" : "POST",
-		"data" : {},
+		"data" : userDetails,
 		"dataType" : "json",
+		"contentType":"application/json",
 		"onDone" : onSucessGetCarInfo,
 		"onFail" : onFailureGetCarInfo,
 		"onAlways" : ""
@@ -103,6 +136,42 @@ var onFailureGetCarInfo = function(jqXHR, textStatus, errorThrown) {
 
 // End
 //***********************MyCar and Associated Funtions End**************//
+
+//************************** Add My Car Details START***********************//
+var addMyCarData=function()
+{
+	userDetails=getLoggedInUserData()
+	reqObject = {
+		"url" : "https://192.168.1.8:8443/sait-services/rest/amigoo-services/setMyCarInfo",
+		"srvcMethod" : "POST",
+		"data" : userDetails,
+		"dataType" : "json",
+		"contentType":"application/json",
+		"onDone" : onSucessAddCarInfo,
+		"onFail" : onFailureAddCarInfo,
+		"onAlways" : ""
+	}
+	callMyWebService(reqObject)
+}
+
+var onSucessAddCarInfo=function(data, jqXHR)
+{
+	console.log(data +","+ "Added Sucessfully");
+	
+}
+
+var onFailureAddCarInfo=function(jqXHR, textStatus, errorThrown)
+{
+	console.log(errorThrown)
+	alert("error"+JSON.stringify(jqXHR))
+	//$("#loader").hide();
+	//$("#overlay").hide();
+	
+}
+
+
+
+//************************** Add My Car Details END***********************//
 
 
 

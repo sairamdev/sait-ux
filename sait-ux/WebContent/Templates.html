@@ -1,9 +1,9 @@
 <!-- Template for Capturing the New Car details of the logged in User. -->
 <!-- Start -->
 
-<div id="CarInputData">
+<div id="newCarDetailsModalTemplate">
 	{{#carAttrData}} <br>
-	<div class="my-input-group">
+	
 
 		<input type="text" class="form-control" placeholder="{{Brand}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
@@ -31,10 +31,8 @@
 			class="form-control" placeholder="{{Registration-Number}}"
 			aria-describedby="basic-addon1" data-toggle="tooltip"
 			title="{{Registration-Number}}" id="{{Registration-Number}}"> <br>
-		<button type="button" class="btn btn-primary" onclick="setMyCarDataToDb()">Add</button>
-
-
-	</div>
+		<!-- <button type="button" class="btn btn-primary" onclick="setMyCarDataToDb()">Add</button> -->
+	
 	<br> {{/carAttrData}}
 </div>
 
@@ -59,6 +57,7 @@
 
 <!-- Template for populating Each car details of the logged in User. -->
 <!-- Start -->
+<!-- <div id="MyCarDetailsModalTemplate"> -->
 <div id="MyCarDetailsModalTemplate">
 
 
@@ -151,7 +150,7 @@
 </div>
 
 
-<!-- Template for Capturing the New Car details of the logged in User. -->
+<!-- Template for showing the breakdown details of the logged in User. -->
 <!-- Start -->
 
 <div id="myBreakDownsDiv-template">

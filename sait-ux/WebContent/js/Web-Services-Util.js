@@ -9,7 +9,9 @@ callMyWebService = function(requestObject) {
 	$.ajax({
 		url : requestObject.url,
 		method : requestObject.srvcMethod,
-		dataType : requestObject.dataType
+		dataType : requestObject.dataType,
+		data:JSON.stringify(requestObject.data),
+		contentType:requestObject.contentType
 	})
 		.done(requestObject.onDone).fail(requestObject.onFail).always(requestObject.onAlways);
 
