@@ -10,11 +10,11 @@ $("#MyCar-menu").click(function(e) {
 	sendontop("MyCar-div");
 });
 
-$("#BreakDown-menu").click(function(e) {
+/*$("#BreakDown-menu").click(function(e) {
 	e.preventDefault();
 	sendontop("breakDown-div");
 	showBreakDownRequestForm();
-});
+});*/
 
 $("#My-Insurance-menu").click(function(e) {
 	e.preventDefault();
@@ -27,7 +27,8 @@ $("#Service-Book-contact-menu").click(function(e) {
 });
 
 $("#BreakDownHistory-contact-menu").click(function(e) {
-	showBreakDownHistory();
+	//showBreakDownHistory();
+	getCarBreakDownHistory();
 	e.preventDefault();
 	sendontop("BreakDownHistory-div");
 });
@@ -35,7 +36,7 @@ $("#BreakDownHistory-contact-menu").click(function(e) {
 /*$("#AddMyCar").click(function(e) {
 	e.preventDefault();
 	sendontop("MyCarAddContents-div");
-});*/
+})*/;
 
 var my_index = 10000; // global var on page
 function sendontop(div_id) {

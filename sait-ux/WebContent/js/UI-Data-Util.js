@@ -2,23 +2,6 @@
 var carModalData;
 var breakDownHistoryModal;
 
-//***********************MyCar and Associated Funtions Start**************//
-
-// This function is used to load the template for creating new car data.
-/*var initAddCarForm = function() {
-
-	$("#AddCarDetailsDiv").load(
-		"Templates.html #CarInputData",
-		function() {
-			var carDetailsTemplate = document
-				.getElementById('CarInputData').innerHTML;
-			var rendered = Mustache.render(carDetailsTemplate,
-				carAttributes);
-			$("#AddCarDetailsDiv").html(rendered);
-		});
-
-}
-*/
 // This function is used to create a list of cars that are registered with the
 // user logged-in.
 var showMyCars = function() {
@@ -61,14 +44,6 @@ var populateNewCarDetailsModal = function() {
 
 }
 
-
-//
-
-
-
-
-
-
 // The below set of function is used to create a data structure for the modal to
 // consume.
 // Start
@@ -84,7 +59,7 @@ var initCarDetailsModalData = function() {
 	$("#overlay").show()
 	userDetails=getLoggedInUserData()
 	reqObject = {
-		"url" : "https://192.168.1.8:8443/sait-services/rest/amigoo-services/getMyCarInfo",
+		"url" : "https://192.168.1.4:8443/sait-services/rest/amigoo-services/getMyCarInfo",
 		"srvcMethod" : "POST",
 		"data" : userDetails,
 		"dataType" : "json",
@@ -93,8 +68,6 @@ var initCarDetailsModalData = function() {
 		"onFail" : onFailureGetCarInfo,
 		"onAlways" : ""
 	}
-
-
 	callMyWebService(reqObject)
 }
 
@@ -124,7 +97,7 @@ var onSucessGetCarInfo = function(data, jqXHR) {
 		});
 	carModalData = carDetailsModalData;
 	$("#loader").hide();
-	$("#overlay").hide()
+	$("#overlay").hide();
 }
 
 var onFailureGetCarInfo = function(jqXHR, textStatus, errorThrown) {
@@ -140,11 +113,35 @@ var onFailureGetCarInfo = function(jqXHR, textStatus, errorThrown) {
 //************************** Add My Car Details START***********************//
 var addMyCarData=function()
 {
-	userDetails=getLoggedInUserData()
+	
+	//This is the New Car Object. Any addition of the attribute here should be added to the newCarDetailsModalTemplate template 
+	//in the Template.html.
+	/*{
+		"Brand" : "Brand",
+		"Model" : "FuelType",
+		"Year" : "Year",
+		"Variant":"Variant",
+		"Km-Driven":"Km-Driven",
+		"Fuel-Type":"Fuel-Type",
+		"Registration-Number":"Registration-Number"
+		
+
+	}*/
+	
+	/*{"jsonObj":outputJsonObj,"modalFormVals":outputObj}*/
+	$("#loader").show();
+	$("#overlay").show();
+	
+	var userDetails=getLoggedInUserData();
+	var modalFormResultObj=getMyModalFormValues($("#newCarDetailsModalBody"))
+	modalFormResultObj[0]["jsonObj"].UserID=userDetails.UserID
+	modalFormResultObj[0]["jsonObj"].carId=userDetails.UserID +modalFormResultObj[0]["jsonObj"]["Registration-Number"];
+
+	
 	reqObject = {
-		"url" : "https://192.168.1.8:8443/sait-services/rest/amigoo-services/setMyCarInfo",
+		"url" : "https://192.168.1.4:8443/sait-services/rest/amigoo-services/setMyCarInfo",
 		"srvcMethod" : "POST",
-		"data" : userDetails,
+		"data" : modalFormResultObj[0]["jsonObj"],
 		"dataType" : "json",
 		"contentType":"application/json",
 		"onDone" : onSucessAddCarInfo,
@@ -157,15 +154,20 @@ var addMyCarData=function()
 var onSucessAddCarInfo=function(data, jqXHR)
 {
 	console.log(data +","+ "Added Sucessfully");
+	$("#loader").hide();
+	$("#overlay").hide();
+	$("#newCarDetailsModal").modal('hide')
+	alert("New Car Details Added Sucessfully");
 	
 }
 
 var onFailureAddCarInfo=function(jqXHR, textStatus, errorThrown)
 {
-	console.log(errorThrown)
+	console.log(errorThrown +"," +JSON.stringify(jqXHR));
 	alert("error"+JSON.stringify(jqXHR))
-	//$("#loader").hide();
-	//$("#overlay").hide();
+	$("#loader").hide();
+	$("#overlay").hide();
+	$("#newCarDetailsModal").modal('hide')
 	
 }
 
@@ -173,17 +175,105 @@ var onFailureAddCarInfo=function(jqXHR, textStatus, errorThrown)
 
 //************************** Add My Car Details END***********************//
 
+//************************** Add My Car Break-Down Details START***********************//
 
+
+//This function would add the car break-down details from the new car break down details modal.
+
+var addMyCarBrkDownDetails=function()
+{
+	$("#loader").show();
+	$("#overlay").show();
+	
+	var userDetails=getLoggedInUserData();
+	var modalFormResultObj=getMyModalFormValues($("#newCarBrkDwnReqModal"))
+	var randomNum=Math.random();
+	var brkDownId=parseInt(randomNum*10000000)
+	//"brkDwnId" : "BrkID1"
+	modalFormResultObj[0]["jsonObj"].UserID=userDetails.UserID
+	modalFormResultObj[0]["jsonObj"].brkDwnId=brkDownId
+
+	
+	reqObject = {
+		"url" : "https://192.168.1.4:8443/sait-services/rest/amigoo-services/setMyCarBrkDwnInfo",
+		"srvcMethod" : "POST",
+		"data" : modalFormResultObj[0]["jsonObj"],
+		"dataType" : "json",
+		"contentType":"application/json",
+		"onDone" : onSuccessAddBrkDwnInfo,
+		"onFail" : onFailureAddBrkDwnInfo,
+		"onAlways" : ""
+	}
+	callMyWebService(reqObject)
+	
+
+}
+
+var onSuccessAddBrkDwnInfo=function(data, jqXHR)
+{
+	console.log(data +","+ "Added Sucessfully");
+	$("#loader").hide();
+	$("#overlay").hide();
+	$("#newCarBrkDwnReqModal").modal('hide')
+	alert("Break Down Request Made Sucessfully!! Your vehicle buddy will Assist you shortly");
+}
+
+var onFailureAddBrkDwnInfo=function(jqXHR, textStatus, errorThrown){
+	
+	console.log(errorThrown +"," +JSON.stringify(jqXHR));
+	alert("error"+JSON.stringify(jqXHR) +","+errorThrown)
+	$("#loader").hide();
+	$("#overlay").hide();
+	$("#newCarBrkDwnReqModal").modal('hide')
+	
+}
+
+
+
+//************************** Add My Car Break-Down Details END***********************//
+
+
+
+
+
+
+
+
+//***********************Utility Functions START********************************//
+
+//This function would return an array containing a JSON object of the Modal and Associative array of the Modal input values
+//Sample [JSONObject,[]]
+var getMyModalFormValues=function(modalObject)
+{
+	var outputJsonObj={};
+	var  inputGrpArray=modalObject.find("input");
+	var outputObj= new Array();
+	var resultObject=new Array();
+	for(i=0;i<inputGrpArray.length;i++)
+		{
+		var objKey=inputGrpArray[i].id
+		var objValue=$("#"+objKey).val();
+		outputObj[objKey]=objValue;
+		outputJsonObj[objKey]=objValue;
+		
+		}
+	resultObject.push({"jsonObj":outputJsonObj,"modalFormVals":outputObj});
+return resultObject
+}
+
+
+
+//***********************Utility Functions END********************************//
 
 var showBreakDownRequestForm = function() {
-	$("#breakDownDataDiv").load(
-		"Templates.html #carBreakDownData",
+	$("#newCarBrkDwnReqModalBody").load(
+		"Templates.html #myCarBrkDwnNewRequestTemplate",
 		function() {
 			var carBreakDownTemplate = document
-				.getElementById("carBreakDownData").innerHTML;
+				.getElementById("myCarBrkDwnNewRequestTemplate").innerHTML;
 			var rendered = Mustache.render(carBreakDownTemplate,
 				myCarBreakDownDetails);
-			$("#breakDownDataDiv").html(rendered);
+			$("#newCarBrkDwnReqModalBody").html(rendered);
 		});
 }
 
@@ -231,3 +321,66 @@ var populateBreakDownHistoryModal = function(brkDwnId) {
 		});
 
 }
+
+
+//****************Car Break Down History Service START*********************//
+
+
+var getCarBreakDownHistory = function() {
+
+	$("#loader").show();
+	$("#overlay").show()
+	userDetails=getLoggedInUserData()
+	reqObject = {
+		"url" : "https://192.168.1.4:8443/sait-services/rest/amigoo-services/getMyCarBrkDwnInfo",
+		"srvcMethod" : "POST",
+		"data" : userDetails,
+		"dataType" : "json",
+		"contentType":"application/json",
+		"onDone" : onSucessGetCarBrkDownInfo,
+		"onFail" : onFailureGetCarBrkDownInfo,
+		"onAlways" : ""
+	}
+	callMyWebService(reqObject)
+}
+
+var onSucessGetCarBrkDownInfo =function(data, jqXHR)
+{
+	
+	
+	$("#myBreakDownHistoryDiv").load(
+			"Templates.html #myBreakDownsDiv-template",
+			function() {
+				var carBreakDownTemplate = document
+					.getElementById("myBreakDownsDiv-template").innerHTML;
+				var rendered = Mustache.render(carBreakDownTemplate,
+						{"myBreakDowns":data});// {"myBreakDowns":data} just to conform to the data model. 
+											   // As the service is returning only arraylist
+				$("#myBreakDownHistoryDiv").html(rendered);
+			});
+	var carBrkDownModalData = [];
+	var myObj = {}
+	for (carBrkDownObjsInx in data) {
+		//console.log(myCarDetails.myCars[carObjsInx])
+		var myObj = {};
+		myObj.myCarBrkDownObj = data[carBrkDownObjsInx];
+		carBrkDownModalData[data[carBrkDownObjsInx]["brkDwnId"]] = myObj;
+
+	}
+	breakDownHistoryModal = carBrkDownModalData;
+	
+	$("#loader").hide();
+	$("#overlay").hide();
+	
+	
+}
+
+var onFailureGetCarBrkDownInfo =function(data, jqXHR,errorThrown)
+{
+	console.log(errorThrown +"," +JSON.stringify(jqXHR));
+	alert("error"+JSON.stringify(jqXHR) +","+errorThrown)
+	$("#loader").hide();
+	$("#overlay").hide();
+	}
+
+//****************Car Break Down History Service END*********************//

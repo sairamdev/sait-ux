@@ -28,30 +28,22 @@
 </head>
 
 <body>
-<div id="overlay" class="container fluid">
+	<div id="overlay" class="container fluid">
 
-
-            <div class="row row-centered pos" id ="innerOverlayContainer">
-                <div class="col-lg-8 col-xs-12 col-centered" >
-                    <div id="loader"></div>
-                    
-                
-                
-            </div></div>
-        
-
-
-
-</div>
+		<div class="row row-centered pos" id="innerOverlayContainer">
+			<div class="col-lg-8 col-xs-12 col-centered">
+				<div id="loader"></div>
+			</div>
+		</div>
+	</div>
 	<div id="map-canvas"></div>
 	<div id="template-my-regstrd-cars" style="display: none;"></div>
 	<div id="template-my-regstrd-cars-modal" style="display: none;"></div>
 	<div id="template-CarInputData" style="display: none;"></div>
 	<div id="template-breakdowndata" style="display: none;"></div>
 	<div id="template-breakdowndata" style="display: none;"></div>
-
 	<div class="container-fluid">
- 			<div class="row">
+		<div class="row">
 			<nav class="navbar my-navbar navbar-inverse">
 				<div>
 					<div class="navbar-header">
@@ -111,11 +103,11 @@
 						<!-- <a href=# class="MyCarGylphs" id="AddMyCar"
 							onclick="initAddCarForm()"><i
 							class="glyphicon glyphicon-plus">AddCar</i></a> -->
-							
-							<a href=# class="MyCarGylphs" id="AddMyCar" data-toggle="modal" data-target="#newCarDetailsModal" onclick="populateNewCarDetailsModal()"><i
-							class="glyphicon glyphicon-plus" >AddCar</i></a>
 
-
+						<a href=# class="MyCarGylphs" id="AddMyCar" data-toggle="modal"
+							data-target="#newCarDetailsModal"
+							onclick="populateNewCarDetailsModal()"><i
+							class="glyphicon glyphicon-plus">AddCar</i></a>
 						<div class="row">
 							<hr class="myHr">
 						</div>
@@ -128,7 +120,7 @@
 							</div>
 
 							<div id="my-registered-cars-Div"></div>
-							
+
 
 							<div class="row">
 								<hr class="myHr">
@@ -226,26 +218,6 @@
 					</ul>
 				</div>
 
-				<!-- <div class="indvdl-menu-item" id="MyCarAddContents-div">
-
-					<ul class="sidebar-nav">
-						<li class="sidebar-brand">
-							<h4 class="my-h4">AddCar</h4> <a class="menu-div-slide-btn"
-							href="#" id="prevs-mnu-AddCar"> <i
-								class="glyphicon glyphicon-chevron-left"></i>
-						</a>
-						</li>
-						<div class="my-hr-row">
-							<hr class="myHr">
-						</div>
-						<div id="AddCarDetailsDiv"></div>
-
-
-						<div class="my-hr-row">
-							<hr class="myHr">
-						</div>
-					</ul>
-				</div> -->
 
 				<div class="menu-item-div" id="main-menu-div">
 					<ul class="sidebar-nav">
@@ -261,7 +233,8 @@
 						<div class="my-hr-row">
 							<hr class="myHr">
 						</div>
-						<li><a href="#" id="BreakDown-menu"
+						<li><a href="#" id="BreakDown-menu" data-toggle="modal"
+							data-target="#newCarBrkDwnReqModal"
 							onclick="showBreakDownRequestForm()">BreakDown</a></li>
 						<div class="my-hr-row">
 							<hr class="myHr">
@@ -274,7 +247,7 @@
 						<div class="my-hr-row">
 							<hr class="myHr">
 						</div>
-						<li><a href="#" id="BreakDownHistory-contact-menu">BreakDownHistory</a></li>
+						<li><a href="#" id="BreakDownHistory-contact-menu" onclick="getCarBreakDownHistory()">BreakDownHistory</a></li>
 						<div class="my-hr-row">
 							<hr class="myHr">
 						</div>
@@ -316,8 +289,9 @@
 	<!-- /.modal -->
 
 
-<!-- Modal For Adding the New Car  START -->
-<div class="modal fade" tabindex="-1" role="dialog"
+	<!-- Modal For Adding the New Car  START -->
+
+	<div class="modal fade" tabindex="-1" role="dialog"
 		id="newCarDetailsModal">
 		<!-- TO-DO Need to automatically populate from DB. -->
 		<div class="modal-dialog" role="document">
@@ -337,9 +311,10 @@
 				</div>
 
 				<div class="modal-footer">
-					
-					<button type="button" class="btn btn-primary">Add Car</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal" onclick="addMyCarData()">Close</button>
+<!-- onclick="addMyCarData()" -->
+					<button type="button" class="btn btn-primary" onclick="addMyCarData()">Add Car</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal"
+						>Close</button>
 
 				</div>
 			</div>
@@ -349,13 +324,48 @@
 	</div>
 	<!-- /.modal -->
 
-<!-- Modal For Adding the New Car  END -->
+	<!-- Modal For Adding the New Car  END -->
 
 
+	<!-- Modal For Adding the New Car Break Down Request  START -->
 
+	<div class="modal fade" tabindex="-1" role="dialog"
+		id="newCarBrkDwnReqModal">
+		<!-- TO-DO Need to automatically populate from DB. -->
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header ">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title" id="MyCarNameHeading">New Car Break
+						Down Request</h4>
+				</div>
+				<div class="modal-body" id="newCarBrkDwnReqModalBody">
+					<!-- The below piece of HTML should be auto generated based on the incoming data.
+				Start -->
+					<!-- End -->
 
+				</div>
 
+				<div class="modal-footer">
 
+					<button type="button" class="btn btn-primary btn-space"
+						onclick="getMyLocation(reverseGeoCode)">MyLocation</button>
+					<button type="button" class="btn btn-primary btn-space" onclick="addMyCarBrkDownDetails()">Amigoo</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal"
+						>Close</button>
+
+				</div>
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal-dialog -->
+	</div>
+	<!-- /.modal -->
+
+	<!-- Modal For Adding the New Car Break Down Request  END -->
 
 
 
@@ -389,31 +399,31 @@
 		<!-- /.modal-dialog -->
 	</div>
 	<!-- /.modal -->
-	
-	
-	
-	
-	
+
+
+
+
+
 	<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-	
+		<div class="modal-dialog">
+
+			<!-- Modal content-->
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">&times;</button>
+					<h4 class="modal-title">Modal Header</h4>
+				</div>
+				<div class="modal-body">
+					<p>Some text in the modal.</p>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
 
 	<!-- jQuery -->
 	<script src="js/jquery.js"></script>

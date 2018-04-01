@@ -102,7 +102,7 @@
 <!-- End -->
 
 
-<div id="carBreakDownData">
+<!-- <div id="carBreakDownData">
 	{{#myCarBreakDownData}} <br>
 
 	<div class="my-input-group">
@@ -148,7 +148,51 @@
 
 	<br> {{/myCarBreakDownData}}
 </div>
+ -->
+<!-- Modal Template for creating a new BreakDown Request START -->
 
+<div id="myCarBrkDwnNewRequestTemplate">
+	{{#myCarBreakDownData}} <br> <input id="CurrentPosition" type="text" class="form-control"
+			placeholder="{{CurrentPosition}}" aria-describedby="basic-addon0"
+			data-toggle="tooltip" title="{{CurrentPosition}}"> <br>
+
+		<input id="Locality" type="text" class="form-control"
+			placeholder="{{Locality}}" aria-describedby="basic-addon1"
+			data-toggle="tooltip" title="{{Locality}}"> <br> <input
+			id="StreetAddress" type="text" class="form-control"
+			placeholder="{{StreetAddress}}" aria-describedby="basic-addon1"
+			data-toggle="tooltip" title="{{StreetAddress}}"> <br> <input
+			id="City" type="text" class="form-control" placeholder="{{City}}"
+			aria-describedby="basic-addon1" data-toggle="tooltip"
+			title="{{City}}"> <br> <input id="District" type="text"
+			class="form-control" placeholder="{{District}}"
+			aria-describedby="basic-addon1" data-toggle="tooltip"
+			title="{{District}}"> <br> <input id="State" type="text"
+			class="form-control" placeholder="{{State}}"
+			aria-describedby="basic-addon1" data-toggle="tooltip"
+			title="{{State}}"> <br> <input id="ZipCode" type="text"
+			class="form-control" placeholder="{{Zip Code}}"
+			aria-describedby="basic-addon1" data-toggle="tooltip"
+			title="{{Zip Code}}"> <br> <input id="Country"
+			type="text" class="form-control" placeholder="{{Country}}"
+			aria-describedby="basic-addon1" data-toggle="tooltip"
+			title="{{Country}}"> <br> <input id="Problem"
+			type="text" class="form-control" placeholder="{{Problem}}"
+			aria-describedby="basic-addon1" data-toggle="tooltip"
+			title="{{Problem}}"> <br>
+
+
+
+	<br> {{/myCarBreakDownData}}
+</div>
+
+
+
+
+
+
+
+<!-- Modal Template for creating a new BreakDown Request START -->
 
 <!-- Template for showing the breakdown details of the logged in User. -->
 <!-- Start -->

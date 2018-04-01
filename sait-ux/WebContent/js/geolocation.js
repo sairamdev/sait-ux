@@ -57,11 +57,16 @@ var reverseGeoCode = function(position) {
 		if (status === 'OK') {
 			setCurrentAddress(results[0], position)
 			if (results[1]) {
-				map.setZoom(11);
+				map.setZoom(18);
+				var pos = {
+						lat : position.lat,
+						lng : position.lng
+					};
 				var marker = new google.maps.Marker({
-					position : position,
+					position : pos,
 					map : map
 				});
+				map.setCenter(pos)
 
 				infowindow.setContent(results[1].formatted_address);
 				infowindow.open(map, marker);
