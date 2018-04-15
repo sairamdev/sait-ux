@@ -36,7 +36,8 @@
 			</div>
 		</div>
 	</div>
-	<div id="map-canvas"></div>
+	<div id="overlayHomeDiv" class="container fluid"></div>
+
 	<div id="template-my-regstrd-cars" style="display: none;"></div>
 	<div id="template-my-regstrd-cars-modal" style="display: none;"></div>
 	<div id="template-CarInputData" style="display: none;"></div>
@@ -44,6 +45,8 @@
 	<div id="template-breakdowndata" style="display: none;"></div>
 	<div class="container-fluid">
 		<div class="row">
+			<div id="map-canvas"></div>
+
 			<nav class="navbar my-navbar navbar-inverse">
 				<div>
 					<div class="navbar-header">
@@ -239,15 +242,16 @@
 						<div class="my-hr-row">
 							<hr class="myHr">
 						</div>
-						<li><a href="#" id="My-Insurance-menu">My-Insurance</a></li>
+						<!-- <li><a href="#" id="My-Insurance-menu">My-Insurance</a></li>
 						<div class="my-hr-row">
 							<hr class="myHr">
 						</div>
 						<li><a href="#" id="Service-Book-contact-menu">Service-Book</a></li>
 						<div class="my-hr-row">
 							<hr class="myHr">
-						</div>
-						<li><a href="#" id="BreakDownHistory-contact-menu" onclick="getCarBreakDownHistory()">BreakDownHistory</a></li>
+						</div> -->
+						<li><a href="#" id="BreakDownHistory-contact-menu"
+							onclick="getCarBreakDownHistory()">BreakDownHistory</a></li>
 						<div class="my-hr-row">
 							<hr class="myHr">
 						</div>
@@ -311,10 +315,10 @@
 				</div>
 
 				<div class="modal-footer">
-<!-- onclick="addMyCarData()" -->
-					<button type="button" class="btn btn-primary" onclick="addMyCarData()">Add Car</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal"
-						>Close</button>
+					<!-- onclick="addMyCarData()" -->
+					<button type="button" class="btn btn-primary"
+						onclick="addMyCarData()">Add Car</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
 				</div>
 			</div>
@@ -353,9 +357,9 @@
 
 					<button type="button" class="btn btn-primary btn-space"
 						onclick="getMyLocation(reverseGeoCode)">MyLocation</button>
-					<button type="button" class="btn btn-primary btn-space" onclick="addMyCarBrkDownDetails()">Amigoo</button>
-					<button type="button" class="btn btn-default" data-dismiss="modal"
-						>Close</button>
+					<button type="button" class="btn btn-primary btn-space"
+						onclick="addMyCarBrkDownDetails()">Amigoo</button>
+					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 
 				</div>
 			</div>
@@ -400,10 +404,6 @@
 	</div>
 	<!-- /.modal -->
 
-
-
-
-
 	<div class="modal fade" id="myModal" role="dialog">
 		<div class="modal-dialog">
 
@@ -423,12 +423,11 @@
 
 		</div>
 	</div>
-
-
 	<!-- jQuery -->
 	<script src="js/jquery.js"></script>
 	<!-- Bootstrap Core JavaScript -->
 	<script src="js/bootstrap.min.js"></script>
+	<script src="js/environment.js"></script>
 	<script src="js/gmaps-utils.js"></script>
 	<script type="text/javascript" src="js/geosrvr-gmaps.js"></script>
 	<script type="text/javascript" src="js/geoserver-helper.js"></script>

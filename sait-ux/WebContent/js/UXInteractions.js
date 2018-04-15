@@ -1,5 +1,14 @@
 $("#menu-toggle").click(function(e) {
 	e.preventDefault();
+	$("#overlayHomeDiv").show();
+	$("#sidebar-wrapper").toggleClass("toggled");
+	google.maps.event.trigger(map, 'resize');
+
+});
+
+$("#overlayHomeDiv").click(function(e) {
+	e.preventDefault();
+	$("#overlayHomeDiv").hide();
 	$("#sidebar-wrapper").toggleClass("toggled");
 	google.maps.event.trigger(map, 'resize');
 
@@ -36,7 +45,8 @@ $("#BreakDownHistory-contact-menu").click(function(e) {
 /*$("#AddMyCar").click(function(e) {
 	e.preventDefault();
 	sendontop("MyCarAddContents-div");
-})*/;
+})*/
+;
 
 var my_index = 10000; // global var on page
 function sendontop(div_id) {
@@ -47,64 +57,64 @@ function sendontop(div_id) {
 var leftMargin = "-570px";
 
 $("#prevs-mnu-MyCar")
-		.click(
-				function(e) {
-					e.preventDefault();
-					var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
-					var divElement = document.getElementById(prevsDivId);
-					divElement.style.marginLeft = leftMargin;
+	.click(
+		function(e) {
+			e.preventDefault();
+			var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
+			var divElement = document.getElementById(prevsDivId);
+			divElement.style.marginLeft = leftMargin;
 
-				});
+		});
 
 $("#prevs-mnu-brkdwn")
-		.click(
-				function(e) {
-					e.preventDefault();
-					var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
-					var divElement = document.getElementById(prevsDivId);
-					divElement.style.marginLeft = leftMargin;
+	.click(
+		function(e) {
+			e.preventDefault();
+			var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
+			var divElement = document.getElementById(prevsDivId);
+			divElement.style.marginLeft = leftMargin;
 
-				});
+		});
 
 $("#prevs-mnu-My-Insurance")
-		.click(
-				function(e) {
-					e.preventDefault();
-					var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
-					var divElement = document.getElementById(prevsDivId);
-					divElement.style.marginLeft = leftMargin;
+	.click(
+		function(e) {
+			e.preventDefault();
+			var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
+			var divElement = document.getElementById(prevsDivId);
+			divElement.style.marginLeft = leftMargin;
 
-				});
+		});
 
 $("#prevs-mnu-Service-Book")
-		.click(
-				function(e) {
-					e.preventDefault();
-					var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
-					var divElement = document.getElementById(prevsDivId);
-					divElement.style.marginLeft = leftMargin;
+	.click(
+		function(e) {
+			e.preventDefault();
+			var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
+			var divElement = document.getElementById(prevsDivId);
+			divElement.style.marginLeft = leftMargin;
 
-				});
+		});
 
 $("#prevs-mnu-BreakDownHistory")
-		.click(
-				function(e) {
-					e.preventDefault();
-					var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
-					var divElement = document.getElementById(prevsDivId);
-					divElement.style.marginLeft = leftMargin;
+	.click(
+		function(e) {
+			e.preventDefault();
+			var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
+			var divElement = document.getElementById(prevsDivId);
+			divElement.style.marginLeft = leftMargin;
 
-				});
+		});
 
 $("#prevs-mnu-AddCar")
-		.click(
-				function(e) {
-					e.preventDefault();
-					var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
-					var divElement = document.getElementById(prevsDivId);
-					divElement.style.marginLeft = leftMargin;
+	.click(
+		function(e) {
+			e.preventDefault();
+			var prevsDivId = e.target.parentElement.parentElement.parentElement.parentElement.id
+			var divElement = document.getElementById(prevsDivId);
+			divElement.style.marginLeft = leftMargin;
 
-				});
+		});
 
 $('#drive-time-radio-btn').click(function() {
 	if ($(this).is(':checked')) {
