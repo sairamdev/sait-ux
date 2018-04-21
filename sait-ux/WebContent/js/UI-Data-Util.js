@@ -15,16 +15,21 @@ var showMyCars = function() {
 // by users.
 var populateCarDetailsModal = function(carID) {
 
-	$("#MyCarDetailsModalBody").load(
-		"Templates.html #MyCarDetailsModalTemplate",
-		function() {
-			var myCarObjs = '';
-			myCarObjs = document
-				.getElementById('MyCarDetailsModalTemplate').innerHTML;
-			var output = Mustache.render(myCarObjs, carModalData[carID]);
-			$("#MyCarDetailsModalBody").html(output);
-		});
-
+	try {
+		$("#MyCarDetailsModalBody").load(
+			"Templates.html #MyCarDetailsModalTemplate",
+			function() {
+				var myCarObjs = '';
+				myCarObjs = document
+					.getElementById('MyCarDetailsModalTemplate').innerHTML;
+				var output = Mustache.render(myCarObjs, carModalData[carID]);
+				$("#MyCarDetailsModalBody").html(output);
+			});
+	} catch (e) {
+		// TODO: handle exception
+		alert(e)
+		console.log(e);
+	}
 }
 
 
@@ -33,15 +38,22 @@ var populateCarDetailsModal = function(carID) {
 
 var populateNewCarDetailsModal = function() {
 
-	$("#newCarDetailsModalBody").load(
-		"Templates.html #newCarDetailsModalTemplate",
-		function() {
-			var myCarObjs = '';
-			myCarObjs = document
-				.getElementById('newCarDetailsModalTemplate').innerHTML;
-			var output = Mustache.render(myCarObjs, carAttributes);
-			$("#newCarDetailsModalBody").html(output);
-		});
+	try {
+		$("#newCarDetailsModalBody").load(
+			"Templates.html #newCarDetailsModalTemplate",
+			function() {
+				var myCarObjs = '';
+				myCarObjs = document
+					.getElementById('newCarDetailsModalTemplate').innerHTML;
+				var output = Mustache.render(myCarObjs, carAttributes);
+				$("#newCarDetailsModalBody").html(output);
+			});
+	} catch (e) {
+		// TODO: handle exception
+		alert(e)
+		console.log(e);
+	}
+
 
 }
 
@@ -75,36 +87,44 @@ var initCarDetailsModalData = function() {
 }
 
 var onSucessGetCarInfo = function(data, jqXHR) {
-	if (data.length == 0) {
-		$("#MyCarParagraph").show();
-	}
-	var carDetailsModalData = [];
-	var myObj = {}
-	for (carObjsInx in data) {
-		console.log(data[carObjsInx])
-		var myObj = {};
-		myObj.myCarObj = data[carObjsInx];
-		carDetailsModalData[data[carObjsInx]["carId"]] = myObj;
-		myCurrentCarData[data[carObjsInx].carId] = data[carObjsInx];
+
+	try {
+		if (data.length == 0) {
+			$("#MyCarParagraph").show();
+		}
+		var carDetailsModalData = [];
+		var myObj = {}
+		for (carObjsInx in data) {
+			console.log(data[carObjsInx])
+			var myObj = {};
+			myObj.myCarObj = data[carObjsInx];
+			carDetailsModalData[data[carObjsInx]["carId"]] = myObj;
+			myCurrentCarData[data[carObjsInx].carId] = data[carObjsInx];
+		}
+
+		//Added {"myCars":data} to satisfy the template format.Need to add such things 
+		//whenever we are getting an array only as the ouput from webservice
+
+		$("#my-registered-cars-Div").load(
+			"Templates.html #my-registered-cars",
+			function() {
+				var myRegisteredCarDetails = document
+					.getElementById('my-registered-cars').innerHTML;
+				var output = Mustache.render(myRegisteredCarDetails,
+					{
+						"myCars" : data
+					});
+				$("#my-registered-cars-Div").html(output);
+			});
+		carModalData = carDetailsModalData;
+		$("#loader").hide();
+		$("#overlay").hide();
+	} catch (e) {
+		// TODO: handle exception
+		alert(e)
+		console.log(e);
 	}
 
-	//Added {"myCars":data} to satisfy the template format.Need to add such things 
-	//whenever we are getting an array only as the ouput from webservice
-
-	$("#my-registered-cars-Div").load(
-		"Templates.html #my-registered-cars",
-		function() {
-			var myRegisteredCarDetails = document
-				.getElementById('my-registered-cars').innerHTML;
-			var output = Mustache.render(myRegisteredCarDetails,
-				{
-					"myCars" : data
-				});
-			$("#my-registered-cars-Div").html(output);
-		});
-	carModalData = carDetailsModalData;
-	$("#loader").hide();
-	$("#overlay").hide();
 }
 
 var onFailureGetCarInfo = function(jqXHR, textStatus, errorThrown) {
@@ -246,22 +266,31 @@ var onFailureAddBrkDwnInfo = function(jqXHR, textStatus, errorThrown) {
 //This function would return an array containing a JSON object of the Modal and Associative array of the Modal input values
 //Sample [JSONObject,[]]
 var getMyModalFormValues = function(modalObject) {
-	var outputJsonObj = {};
-	var inputGrpArray = modalObject.find("input");
-	var outputObj = new Array();
-	var resultObject = new Array();
-	for (i = 0; i < inputGrpArray.length; i++) {
-		var objKey = inputGrpArray[i].id
-		var objValue = $("#" + objKey).val();
-		outputObj[objKey] = objValue;
-		outputJsonObj[objKey] = objValue;
 
+	try {
+		var outputJsonObj = {};
+		var inputGrpArray = modalObject.find("input");
+		var outputObj = new Array();
+		var resultObject = new Array();
+		for (i = 0; i < inputGrpArray.length; i++) {
+			var objKey = inputGrpArray[i].id
+			var objValue = $("#" + objKey).val();
+			outputObj[objKey] = objValue;
+			outputJsonObj[objKey] = objValue;
+
+		}
+		resultObject.push({
+			"jsonObj" : outputJsonObj,
+			"modalFormVals" : outputObj
+		});
+		return resultObject
+	} catch (e) {
+		// TODO: handle exception
+		alert(e)
+		console.log(e);
 	}
-	resultObject.push({
-		"jsonObj" : outputJsonObj,
-		"modalFormVals" : outputObj
-	});
-	return resultObject
+
+
 }
 
 
@@ -269,59 +298,90 @@ var getMyModalFormValues = function(modalObject) {
 //***********************Utility Functions END********************************//
 
 var showBreakDownRequestForm = function() {
-	$("#newCarBrkDwnReqModalBody").load(
-		"Templates.html #myCarBrkDwnNewRequestTemplate",
-		function() {
-			var carBreakDownTemplate = document
-				.getElementById("myCarBrkDwnNewRequestTemplate").innerHTML;
-			var rendered = Mustache.render(carBreakDownTemplate,
-				myCarBreakDownDetails);
-			$("#newCarBrkDwnReqModalBody").html(rendered);
-		});
+
+	try {
+		$("#newCarBrkDwnReqModalBody").load(
+			"Templates.html #myCarBrkDwnNewRequestTemplate",
+			function() {
+				var carBreakDownTemplate = document
+					.getElementById("myCarBrkDwnNewRequestTemplate").innerHTML;
+				var rendered = Mustache.render(carBreakDownTemplate,
+					myCarBreakDownDetails);
+				$("#newCarBrkDwnReqModalBody").html(rendered);
+			});
+
+
+	} catch (e) {
+		// TODO: handle exception
+		alert(e)
+		console.log(e);
+	}
+
+
 }
 
 var showBreakDownHistory = function() {
-	$("#myBreakDownHistoryDiv").load(
-		"Templates.html #myBreakDownsDiv-template",
-		function() {
-			var carBreakDownTemplate = document
-				.getElementById("myBreakDownsDiv-template").innerHTML;
-			var rendered = Mustache.render(carBreakDownTemplate,
-				brekDownHistory);
-			$("#myBreakDownHistoryDiv").html(rendered);
-		});
-	initCarBreakDownHistoryModal();
+	try {
+
+		$("#myBreakDownHistoryDiv").load(
+			"Templates.html #myBreakDownsDiv-template",
+			function() {
+				var carBreakDownTemplate = document
+					.getElementById("myBreakDownsDiv-template").innerHTML;
+				var rendered = Mustache.render(carBreakDownTemplate,
+					brekDownHistory);
+				$("#myBreakDownHistoryDiv").html(rendered);
+			});
+		initCarBreakDownHistoryModal();
+
+	} catch (e) {
+		// TODO: handle exception
+		alert(e)
+		console.log(e);
+	}
 }
 
 
 var initCarBreakDownHistoryModal = function() {
 
-	var carBrkDownModalData = [];
-	var myObj = {}
-	for (carBrkDownObjsInx in brekDownHistory.myBreakDowns) {
-		//console.log(myCarDetails.myCars[carObjsInx])
-		var myObj = {};
-		myObj.myCarBrkDownObj = brekDownHistory.myBreakDowns[carBrkDownObjsInx];
-		carBrkDownModalData[brekDownHistory.myBreakDowns[carBrkDownObjsInx]["brkDwnId"]] = myObj;
+	try {
+		var carBrkDownModalData = [];
+		var myObj = {}
+		for (carBrkDownObjsInx in brekDownHistory.myBreakDowns) {
+			//console.log(myCarDetails.myCars[carObjsInx])
+			var myObj = {};
+			myObj.myCarBrkDownObj = brekDownHistory.myBreakDowns[carBrkDownObjsInx];
+			carBrkDownModalData[brekDownHistory.myBreakDowns[carBrkDownObjsInx]["brkDwnId"]] = myObj;
 
+		}
+		breakDownHistoryModal = carBrkDownModalData;
+
+		return carBrkDownModalData;
+	} catch (e) {
+		// TODO: handle exception
+		alert(e)
+		console.log(e);
 	}
-	breakDownHistoryModal = carBrkDownModalData;
-
-	return carBrkDownModalData;
-
 }
 
 var populateBreakDownHistoryModal = function(brkDwnId) {
-	$("#myCarBrkDownModalBody").load(
-		"Templates.html #myCarBreakDownDetails-template",
-		function() {
-			var myCarObjs = '';
-			myCarBrkDownObjs = document
-				.getElementById('myCarBreakDownDetails-template').innerHTML;
-			var output = Mustache.render(myCarBrkDownObjs, breakDownHistoryModal[brkDwnId]);
-			$("#myCarBrkDownModalBody").html(output);
-		});
 
+	try {
+		$("#myCarBrkDownModalBody").load(
+			"Templates.html #myCarBreakDownDetails-template",
+			function() {
+				var myCarObjs = '';
+				myCarBrkDownObjs = document
+					.getElementById('myCarBreakDownDetails-template').innerHTML;
+				var output = Mustache.render(myCarBrkDownObjs, breakDownHistoryModal[brkDwnId]);
+				$("#myCarBrkDownModalBody").html(output);
+			});
+
+	} catch (e) {
+		// TODO: handle exception
+		alert(e)
+		console.log(e);
+	}
 }
 
 //****************Car Break Down History Service START*********************//
@@ -346,34 +406,40 @@ var getCarBreakDownHistory = function() {
 
 var onSucessGetCarBrkDownInfo = function(data, jqXHR) {
 
+	try {
 
-	$("#myBreakDownHistoryDiv").load(
-		"Templates.html #myBreakDownsDiv-template",
-		function() {
-			var carBreakDownTemplate = document
-				.getElementById("myBreakDownsDiv-template").innerHTML;
-			var rendered = Mustache.render(carBreakDownTemplate,
-				{
-					"myBreakDowns" : data
-				}); // {"myBreakDowns":data} just to conform to the data model. 
-			// As the service is returning only arraylist
-			$("#myBreakDownHistoryDiv").html(rendered);
-		});
-	var carBrkDownModalData = [];
-	var myObj = {}
-	for (carBrkDownObjsInx in data) {
-		//console.log(myCarDetails.myCars[carObjsInx])
-		var myObj = {};
-		myObj.myCarBrkDownObj = data[carBrkDownObjsInx];
-		carBrkDownModalData[data[carBrkDownObjsInx]["brkDwnId"]] = myObj;
+		$("#myBreakDownHistoryDiv").load(
+			"Templates.html #myBreakDownsDiv-template",
+			function() {
+				var carBreakDownTemplate = document
+					.getElementById("myBreakDownsDiv-template").innerHTML;
+				var rendered = Mustache.render(carBreakDownTemplate,
+					{
+						"myBreakDowns" : data
+					}); // {"myBreakDowns":data} just to conform to the data model. 
+				// As the service is returning only arraylist
+				$("#myBreakDownHistoryDiv").html(rendered);
+			});
+		var carBrkDownModalData = [];
+		var myObj = {}
+		for (carBrkDownObjsInx in data) {
+			//console.log(myCarDetails.myCars[carObjsInx])
+			var myObj = {};
+			myObj.myCarBrkDownObj = data[carBrkDownObjsInx];
+			carBrkDownModalData[data[carBrkDownObjsInx]["brkDwnId"]] = myObj;
 
+		}
+		breakDownHistoryModal = carBrkDownModalData;
+
+		$("#loader").hide();
+		$("#overlay").hide();
+
+
+	} catch (e) {
+		// TODO: handle exception
+		alert(e)
+		console.log(e);
 	}
-	breakDownHistoryModal = carBrkDownModalData;
-
-	$("#loader").hide();
-	$("#overlay").hide();
-
-
 }
 
 var onFailureGetCarBrkDownInfo = function(data, jqXHR, errorThrown) {
@@ -434,8 +500,6 @@ var onFailureDelCarInfo = function(data, jqXHR, errorThrown) {
 
 var refreshCarList = function() {
 	initCarDetailsModalData();
-
-
 
 }
 //*************************Delete My Car END***************************//

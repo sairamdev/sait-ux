@@ -65,7 +65,7 @@
 							class="glyphicon glyphicon-map-marker"></i></a>
 
 
-						<form class="navbar-brand navbar-form">
+						<form class="navbar-brand navbar-form" action="">
 							<div class="input-group">
 								<input type="text" class="form-control" placeholder="Search"
 									id="addressSearch">
@@ -102,37 +102,19 @@
 						</a>
 
 						</li>
-
-						<!-- <a href=# class="MyCarGylphs" id="AddMyCar"
-							onclick="initAddCarForm()"><i
-							class="glyphicon glyphicon-plus">AddCar</i></a> -->
-
-						<a href=# class="MyCarGylphs" id="AddMyCar" data-toggle="modal"
+						<hr class="my-hr-row">
+						<a href="#" class="MyCarGylphs" id="AddMyCar" data-toggle="modal"
 							data-target="#newCarDetailsModal"
 							onclick="populateNewCarDetailsModal()"><i
 							class="glyphicon glyphicon-plus">AddCar</i></a>
-						<div class="row">
-							<hr class="myHr">
-						</div>
-						<div id=MyCarContentDiv>
-							<p id=MyCarParagraph>Your account does not have any car
-								registered. Please add.
-							<p>
-							<div class="row">
-								<hr class="myHr">
-							</div>
 
+						<div id="MyCarContentDiv">
+							<p id="MyCarParagraph">Your account does not have any car
+								registered. Please add.</p>
+							<p></p>
 							<div id="my-registered-cars-Div"></div>
-
-
-							<div class="row">
-								<hr class="myHr">
-							</div>
 						</div>
-
-						<div class="row">
-							<hr class="myHr">
-						</div>
+						<hr class="my-hr-row">
 					</ul>
 				</div>
 
@@ -145,20 +127,13 @@
 								class="glyphicon glyphicon-chevron-left"></i>
 						</a>
 						</li>
-						<div class="row">
-							<hr class="myHr">
-						</div>
+
+						<hr class="my-hr-row">
+
 						<div id="breakDownDataDiv"></div>
-
-
-
-
-						<div class="row">
-							<hr class="myHr">
-						</div>
+						<hr class="my-hr-row">
 					</ul>
 				</div>
-
 				<div class="indvdl-menu-item" id="My-Insurance-div">
 					<div></div>
 					<ul class="sidebar-nav">
@@ -168,14 +143,12 @@
 								class="glyphicon glyphicon-chevron-left"></i>
 						</a>
 						</li>
-						<div class="row">
-							<hr class="myHr">
-						</div>
+
+						<hr class="my-hr-row">
+
 						<li><a href="#" data-toggle="modal" data-target="#myModal">Add
 								My-Insurance</a></li>
-						<div class="row">
-							<hr class="myHr">
-						</div>
+						<hr class="my-hr-row">
 					</ul>
 				</div>
 
@@ -188,14 +161,14 @@
 								class="glyphicon glyphicon-chevron-left"></i>
 						</a>
 						</li>
-						<div class="row">
-							<hr class="myHr">
-						</div>
+
+						<hr class="my-hr-row">
+
 						<li><a href="#" data-toggle="modal" data-target="#myModal">Add
 								Service-Book</a></li>
-						<div class="row">
-							<hr class="myHr">
-						</div>
+
+						<hr class="my-hr-row">
+
 					</ul>
 				</div>
 
@@ -209,19 +182,17 @@
 								class="glyphicon glyphicon-chevron-left"></i>
 						</a>
 						</li>
-						<div class="row">
-							<hr class="myHr">
-						</div>
-						<div id=myBreakDownHistoryDiv></div>
+
+						<hr class="my-hr-row">
+
+						<div id="myBreakDownHistoryDiv"></div>
 						<!-- <li><a href="#" data-toggle="modal" data-target="#myModal">Add
 								BreakDownHistory</a></li> -->
-						<div class="row">
-							<hr class="myHr">
-						</div>
+
+						<hr class="my-hr-row">
+
 					</ul>
 				</div>
-
-
 				<div class="menu-item-div" id="main-menu-div">
 					<ul class="sidebar-nav">
 
@@ -424,15 +395,16 @@
 		</div>
 	</div>
 	<!-- jQuery -->
-	<script src="js/jquery.js"></script>
+	<script src="js/jquery.js" type="text/javascript"></script>
 	<!-- Bootstrap Core JavaScript -->
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/environment.js"></script>
-	<script src="js/gmaps-utils.js"></script>
+	<script src="js/bootstrap.min.js" type="text/javascript"></script>
+	<script src="js/environment.js" type="text/javascript"></script>
+	<script src="js/gmaps-utils.js" type="text/javascript"></script>
 	<script type="text/javascript" src="js/geosrvr-gmaps.js"></script>
 	<script type="text/javascript" src="js/geoserver-helper.js"></script>
 	<script
-		src="https://maps.googleapis.com/maps/api/js?callback=initMap&key=AIzaSyB9uJRahtJHZcPTQMskenU-FzhdJ8G-zRI&libraries=places"></script>
+		src="https://maps.googleapis.com/maps/api/js?callback=initMap&amp;key=AIzaSyB9uJRahtJHZcPTQMskenU-FzhdJ8G-zRI&amp;libraries=places"
+		type="text/javascript"></script>
 	<script type="text/javascript" src="js/UXInteractions.js"></script>
 	<script type="text/javascript" src="js/geolocation.js"></script>
 	<script type="text/javascript" src="js/mustache.min.js"></script>
